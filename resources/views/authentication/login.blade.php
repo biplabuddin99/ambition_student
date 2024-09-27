@@ -1,0 +1,63 @@
+@extends('layout.auth')
+
+@section('content')
+<section class="container py-4 mt-5">
+    <div class="row merber-reg-card">
+        <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+          <div class="card border-0 shadow">
+                <span class="shape"></span>
+                @if(Session::has('response'))
+                    {!!Session::get('response')['message']!!}
+                @endif
+              <div class="row">
+                    <div class="col-lg-4 logo-side-section">
+                        <div class="loginSideText h-100 ">
+                            <div class="body h-100">
+                                <img class="align-self-center p-3" src="{{asset('img/ambition_logo.png')}}" width="140px" alt="side image" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="text-center pt-4">
+                            <span><i class="bi bi-person-circle" style="font-size: 3rem; color:#5b8181"></i></span>
+                            <p class="p-0 m-0">Login</p>
+                        </div>
+                        <div class="p-4 mem-form">
+                            <form action="{{route('login.check')}}" method="post">
+                                @csrf
+                                <div class="col-12 py-2">
+                                    <div class="form-group">
+                                        <label for="phone">Phone Number:</label>
+                                        <input type="text" class="form-control input-bg" placeholder="Phone Number" onfocus="this.placeholder = ''" name="PhoneNumber" value="{{old('PhoneNumber')}}" onblur="this.placeholder = 'Phone Number'" >
+                                    </div>
+                                    @if($errors->has('PhoneNumber'))
+                                        <small class="d-block text-danger">
+                                            {{$errors->first('PhoneNumber')}}
+                                        </small>
+                                    @endif
+                                </div>
+                                <div class="col-12 py-2">
+                                    <div class="form-group">
+                                        <label for="password">Password:</label>
+                                        <input type="password" id="password" class="form-control input-bg" placeholder="******" onfocus="this.placeholder = ''" onblur="this.placeholder = '******'" name="password">
+                                    </div>
+                                    @if($errors->has('password'))
+                                        <small class="d-block text-danger">
+                                            {{$errors->first('password')}}
+                                        </small>
+                                    @endif
+                                </div>
+                                <div class="col-12 py-4 d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-danger">Login</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+@endsection
