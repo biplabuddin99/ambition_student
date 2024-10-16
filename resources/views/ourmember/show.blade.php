@@ -164,21 +164,21 @@
 <div id="member-form">
     <div class="bg1"  style="width:98%; margin:0 auto;">
         <div style="text-align: center;">
-            <img src="{{ asset('./images/khulsi_club_logo.png')}}" width="88%" height= auto; alt="">
+            <img src="{{ asset('./images/ambition_logo.png')}}" width="auto" height= 100px; alt="">
         </div>
         <div style="margin-bottom: 2rem;">
-            <h1 class="font" style="text-align: center; margin-top:2rem;">MEMBERSHIP FORM</h1>
+            <h1 class="font" style="text-align: center; margin-top:2rem;">STUDENTS FORM</h1>
         </div>
 
         <div class="pdiv">
             <div class="tbl1">
                 <h3 style="margin: 0px; font-weight:bold;"><em>Govt. Reg No: CH-10511/13</em></h3>
                 <h3 style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
-                <h3 style="margin: 0px; font-weight:bold;"><em>Holding No - 1471/2184/1, Concord Amusement</em></h3>
-                <h3 style="margin: 0px; font-weight:bold;"><em>Park Road, Opposite of Ansar Sadar Doptor,</em></h3>
-                <h3 style="margin: 0px; font-weight:bold;"><em> Foy'slake, Khulshi, Chattogram, Bangladesh.</em></h3>
+                <h3 style="margin: 0px; font-weight:bold;"><em>Vandar Market, Lift-4, Floor-5th, </em></h3>
+                <h3 style="margin: 0px; font-weight:bold;"><em>Opposite of Dewanhat Fire Service Station, Sheikh Mujib Road,</em></h3>
+                <h3 style="margin: 0px; font-weight:bold;"><em>Chattogram, Bangladesh.</em></h3>
                 <h3 style="margin: 0px;">&nbsp;&nbsp;&nbsp;&nbsp;</h3>
-                <h3 style="margin: 0px; font-weight:bold;"><em>Contact: +88019 88 896 906, +88019 70 896 905</em></h3>
+                <h3 style="margin: 0px; font-weight:bold;"><em>Contact: +8801789-874516, +88011789-874516</em></h3>
             </div>
             <div class="pbox">
                 @if ($show_data->image > 0)
@@ -394,7 +394,7 @@
             </div>
             <table class="dtable" style=" width:100%; border: 1px solid; margin-bottom: 2rem;">
                 <thead style="">
-                    <tr style="background-color: red; color: white; text-align: center; ">
+                    <tr style="background-color: rgb(0, 153, 255); color: white; text-align: center; ">
                         <th style="padding-top: 10px; padding-bottom: 10px; padding-left: 5px; padding-right: 5px; border: 1px solid; border-color: rgb(178, 178, 189);">S/L</th>
                         <th style="padding-left: 5px; padding-right: 5px; border: 1px solid; border-color: rgb(178, 178, 189);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                         <th style="padding-left: 5px; padding-right: 5px; border: 1px solid; border-color: rgb(178, 178, 189); width: 13%;">Sex</th>
@@ -612,7 +612,7 @@
             </div>
             <table class="dtable" style=" width:100%; border: 1px solid;">
                 <thead style="padding-top: 10px; padding-bottom: 5px;">
-                    <tr style="background-color: red; color: white; text-align: center; ">
+                    <tr style="background-color: rgb(0, 183, 255); color: white; text-align: center; ">
                         <th style="padding-top: 10px; padding-bottom: 10px; border: 1px solid; border-color: rgb(178, 178, 189);">S/L</th>
                         <th style="border: 1px solid; border-color: rgb(178, 178, 189); width: 45%;">Name</th>
                         <th style="border: 1px solid; border-color: rgb(178, 178, 189);">Membership Type</th>
@@ -688,7 +688,7 @@
             <div class="">
                 <p style="font-size: 14px; line-height: 20px; text-align:justify;">Declaration I, <span style="border-bottom: 1px dashed;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>hereby declare that I Have Neither Committed any illegal/Criminal act Judiciary Law of Bangladesh, nor been awarded any punishment by Bangladesh Court for any Offence.
                     I further declare that the above statement / particulars are correct therfore, request you to become a Donor, Life, Service, Permanent,
-                    Temporary, Corporate,Honorary,Diplomat and Foreign National Member as per constitution of the <b style="color: red;">CHITTAGONG KHULSHI CLUB LIMITED</b></p>
+                    Temporary, Corporate,Honorary,Diplomat and Foreign National Member as per constitution of the <b style="color: rgb(0, 140, 255);">Ambition Student Consultancy bd</b></p>
             </div>
             <table class = "gfg5" style=" width:100%;">
                 <tr>
@@ -754,7 +754,7 @@
             </table>
             <div>
                 <p style="font-size: 14px; line-height: 19px;">The constitution of club does hereby
-                    declare you as the <span style="border-bottom: 1px dashed;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> of <b style="color: red;">CHITTAGONG KHULSHI CLUB LIMITED</b>
+                    declare you as the <span style="border-bottom: 1px dashed;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> of <b style="color: rgb(0, 140, 255);">Ambition Student Consultancy bd</b>
                     and your Membership No. is <span style="border-bottom: 1px dashed;">{{$show_data->membership_no}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
             </div>
             <div>
@@ -762,8 +762,8 @@
             </div>
             <table class = "gfg3" style=" width:100%">
                 <tr>
-                    <td style="font-size: 14px;"><p style=" border-width: 1px 0 0; border-style: dashed; width: 80%;">President<br><b style="color: red;">CHITTAGONG KHULSHI CLUB LIMITED</b></p></td>
-                    <td style="font-size: 14px;"><p style=" border-width: 1px 0 0; border-style: dashed; width: 80%;">Vice President<br><b style="color: red;">CHITTAGONG KHULSHI CLUB LIMITED</b></p></td>
+                    <td style="font-size: 14px;"><p style=" border-width: 1px 0 0; border-style: dashed; width: 80%;">President<br><b style="color: rgb(0, 140, 255);">Ambition Student Consultancy bd</b></p></td>
+                    <td style="font-size: 14px;"><p style=" border-width: 1px 0 0; border-style: dashed; width: 80%;">Vice President<br><b style="color: rgb(0, 140, 255);">Ambition Student Consultancy bd</b></p></td>
                 </tr>
             </table>
             <div>

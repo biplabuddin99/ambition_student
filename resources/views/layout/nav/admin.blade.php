@@ -63,12 +63,12 @@
     </li>
     
     <li class="submenu-item sidebar-item has-sub">
-        <a href="#" class='sidebar-link'><i class="bi bi-people-fill"></i> <span>{{__('Our Members')}}</span></a>
+        <a href="#" class='sidebar-link'><i class="bi bi-people-fill"></i> <span>{{__('Our Students')}}</span></a>
         <ul class="submenu">
-            <li class="py-1 submenu-item"><a href="{{route(currentUser().'.memberType.index')}}">{{__('Member Type')}}</a></li>
-            <li class="py-1 submenu-item"><a href="{{route(currentUser().'.ourMember.index')}}">{{__('Applied Member')}}</a></li>
-            <li class="py-1 submenu-item"><a href="{{route(currentUser().'.approve_member')}}">{{__('Approved Member')}}</a></li>
-            <li class="py-1 submenu-item"><a href="{{route(currentUser().'.sms_to_member')}}">{{__('SMS To Member')}}</a></li>
+            <li class="py-1 submenu-item"><a href="{{route(currentUser().'.memberType.index')}}">{{__('Student Type')}}</a></li>
+            <li class="py-1 submenu-item"><a href="{{route(currentUser().'.ourMember.index')}}">{{__('Applied Student')}}</a></li>
+            <li class="py-1 submenu-item"><a href="{{route(currentUser().'.approve_member')}}">{{__('Approved Student')}}</a></li>
+            <li class="py-1 submenu-item"><a href="{{route(currentUser().'.sms_to_member')}}">{{__('SMS To Student')}}</a></li>
         </ul>
     </li>
     <li class="submenu-item sidebar-item has-sub">
@@ -108,7 +108,7 @@
             <li  class="py-1 submenu-item"><a href="{{route(currentUser().'.member-invoice.index')}}">Invoice</a></li>
         </ul>
     </li>
-    <li class="sidebar-item has-sub">
+    {{-- <li class="sidebar-item has-sub">
         <a href="#" class='sidebar-link'>
             <i class="bi bi-calculator"></i>
             <span>{{__('Accounts')}}</span>
@@ -142,5 +142,5 @@
                 </ul>
             </li>
         </ul>
-    </li>
+    </li> --}}
 </ul>

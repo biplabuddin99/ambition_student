@@ -447,7 +447,7 @@
         <section class="container-fluid px-5 pb-lg-5  d-none d-sm-block">
           {{-- <div class="our-members">
           </div> --}}
-          <h4 class="animate-title title-heading">Our Members</h4>
+          <h4 class="animate-title title-heading">Our Success Students</h4>
           <div class="row owl-member owl-theme owl-carousel">
           @forelse ($ourMember as $fm)
           <div class="col-12 item pe-2 ps-2">
@@ -485,8 +485,8 @@
               <div class="shadow p-2 mb-3"style="background: #FFF">
                 <div class="border-member">
                   <img src="{{ asset('img/Chairman or1.png')}}" alt="" />
-                  <p>Md. Rafique Uddin Babul</p>
-                  <p>Sizzing Group, Managing Director</p>
+                  <p>Md. Biplab Uddin</p>
+                  <p> Managing Director</p>
                   <p>Liffe Member - LM-002</p>
                 </div>
               </div>
