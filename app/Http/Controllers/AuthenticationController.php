@@ -27,6 +27,9 @@ class AuthenticationController extends Controller
     public function memberSignUpForm(){
         return view('frontend.members.memberRegister');
     }
+    public function onlineApply(){
+        return view('frontend.members.onlineapply');
+    }
 
     public function memberPasswordReset(){
         return view('frontend.members.reset');

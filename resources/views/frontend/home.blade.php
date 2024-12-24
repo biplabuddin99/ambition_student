@@ -169,7 +169,7 @@
       </div>
 
 
-      
+
     </section> --}}
     <!-- Member counter end -->
     <!-- Blog slide & Notice Section -->
@@ -188,14 +188,14 @@
                   @forelse ($vNotice as $v)
                       @if ($v->link != '')
                         <div class="carousel-item active" >
-                          <iframe class="notice-img" width="100%" height="350px" src="https://www.youtube.com/embed/{{$v->link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                          <iframe class="notice-img" width="100%" height="350px" src="https://www.youtube.com/shorts/{{$v->link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                           <p style="font-size: 20px; color:rgb(0, 60, 255); margin-top:6px; text-align:center;">{{$v->video_caption}}</p>
                         </div>
                       @else
                       @endif
                     @empty
                     <div class="carousel-item active">
-                    <iframe class="notice-img" width="100%" height="450x" src="https://www.youtube.com/embed/uA0ag5gEZt8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <iframe class="notice-img" width="100%" height="450x" src="https://youtube.com/shorts/w-egsdTxnfg?si=F833T3tCYdQV0nNx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                     @endforelse
                     @forelse ($vNotice as $notic)
@@ -208,7 +208,7 @@
                       @endif
                     @empty
                     <div class="carousel-item active">
-                      <iframe class="notice-img" width="100%" height="350" src="https://www.youtube.com/embed/uA0ag5gEZt8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                      <iframe class="notice-img" width="100%" height="350" src="https://youtube.com/shorts/w-egsdTxnfg?si=F833T3tCYdQV0nNx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                     @endforelse
                 </div>
@@ -278,7 +278,7 @@
                     @endif
                   @empty
                     <div class="carousel-item active">
-                    <iframe class="notice-img" width="100%" height="200" src="https://www.youtube.com/embed/uA0ag5gEZt8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <iframe class="notice-img" width="100%" height="200" src="https://youtube.com/shorts/w-egsdTxnfg?si=F833T3tCYdQV0nNx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                   @endforelse
                   @forelse ($vNotice as $notic)
@@ -291,7 +291,7 @@
                     @endif
                   @empty
                     <div class="carousel-item active">
-                      <iframe class="notice-img" width="100%" height="200" src="https://www.youtube.com/embed/uA0ag5gEZt8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                      <iframe class="notice-img" width="100%" height="200" src="https://youtube.com/shorts/w-egsdTxnfg?si=F833T3tCYdQV0nNx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                   @endforelse
                 </div>
@@ -331,7 +331,7 @@
               <div class="views-notice">
                 <a href="{{route('all-notice')}}" style="font-size: 14px !important;">Views All Notices</a>
               </div>
-              
+
             </div>
             <div class="col-sm-12 d-lg-none d-md-none">
                 <marquee width="98%"  onmouseover="this.stop();" onmouseout="this.start();" direction="left" height="content-fit" class="p-2">
@@ -378,7 +378,7 @@
               <div class="col-12 item  d-flex justify-content-center">
                 <figure class="shadow">
                   <img class=" zoom" src="{{ asset('img/fasi.jpg')}}" alt="" />
-                  
+
                   <div class="facilities-heading">
                     <h4>Restaurent</h4>
                   </div>
@@ -388,7 +388,7 @@
           </div>
         </div>
       </div>
-      <!-- backgourd overlay animate clircle 
+      <!-- backgourd overlay animate clircle
       <div class="facilites-bg-shadow"></div>-->
       <div class="facilitics-circle1"></div>
       <div class="facilitics-circle2"></div>
@@ -405,7 +405,7 @@
               <div class="col-12 item bg-transparent px-2 ">
                 {{-- <figure class="shadow">
                   <img class="zoom" height="193px" src="{{asset('uploads/facilities/'.$fac->image)}}" alt="" />
-                  
+
                   <div class="facilities-heading">
                     <h4>{{$fac->title}}</h4>
                   </div>
@@ -421,7 +421,7 @@
               <div class="col-12 item  d-flex justify-content-center">
                 <figure class="shadow">
                   <img class=" zoom" src="{{ asset('img/fasi.jpg')}}" alt="" />
-                  
+
                   <div class="facilities-heading">
                     <h4>Restaurent</h4>
                   </div>
@@ -432,7 +432,7 @@
           </div>
         </div>
       </div>
-      <!-- backgourd overlay animate clircle 
+      <!-- backgourd overlay animate clircle
       <div class="facilites-bg-shadow"></div>-->
       <div class="facilitics-circle1"></div>
       <div class="facilitics-circle2"></div>
@@ -440,7 +440,7 @@
     </section>
     {{-- this section for small view end --}}
     <!-- Facilities ends -->
-    
+
     <!-- OUr Member -->
     <div class="memberdiv">
       <div class="our-members member-background">
@@ -461,7 +461,7 @@
                     <h3 class="member-title">{{$fm->given_name }} {{$fm->surname }}</h3>
                     <small>
                       Company:<strong class="member-company"> {{$fm->company}}</strong>
-                        
+
                     </small>
                     <br>
                     <small>
@@ -479,7 +479,7 @@
                 </div> --}}
             </div>
           </div>
-            
+
           @empty
             <div class="col-12 item pe-3 ps-3">
               <div class="shadow p-2 mb-3"style="background: #FFF">
@@ -510,7 +510,7 @@
                     <h3 class="member-title">{{$fm->given_name }} {{$fm->surname }}</h3>
                     <small>
                       Company:<strong class="member-company"> {{$fm->company}}</strong>
-                        
+
                     </small>
                     <br>
                     <small>
@@ -519,7 +519,7 @@
                 </div>
             </div>
           </div>
-            
+
           @empty
             <div class="col-12 item pe-3 ps-3">
               <div class="shadow p-2 mb-3"style="background: #FFF">
@@ -642,7 +642,7 @@
           <div class="p-lg-5 p-md-4 rounded shadow">
             <div class="row member-inner">
               <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                <p class="animate-title">Benefits of Members</p>
+                <p class="animate-title">Benefits of Students</p>
                 <ul class="navbar-nav benefit">
                   @forelse ($benefit as $b)
                     <li class="nav-item">
@@ -661,10 +661,10 @@
                   @endif
               </div>
               <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 become-member-text my-auto">
-                <p style="font-size: 7vw;"><span>Become a <span class="theme-color">Member</span></span></p>
+                <p style="font-size: 7vw;"><span>Online <span class="theme-color">Apply</span></span></p>
               </div>
               <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 apply-text">
-                <a class="shadow" href="{{route('member_registration')}}">Apply Now</a>
+                <a class="shadow" href="{{route('onlineApply')}}">Apply Now</a>
               </div>
             </div>
           </div>
@@ -706,7 +706,7 @@
                   @endif
               </div>
               <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 become-member-text my-auto">
-                <p style="font-size: 7vw;"><span>Become a <span class="theme-color">Member</span></span></p>
+                <p style="font-size: 7vw;"><span>Online<span class="theme-color">Apply</span></span></p>
               </div>
               <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 apply-text">
                 <a class="shadow" href="{{route('member_registration')}}">Apply Now</a>
@@ -722,7 +722,7 @@
     @endsection
     @push('scripts')
     <script>
-      
+
         $('.owl-facilities').owlCarousel({
           loop:true,
           margin:10,
@@ -796,10 +796,10 @@
           }
         })
 
-        
+
     </script>
     <script>
-        ScrollReveal({ 
+        ScrollReveal({
           reset: true ,
           distance: '60px',
           duration: 800,

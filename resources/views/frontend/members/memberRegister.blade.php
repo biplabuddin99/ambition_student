@@ -10,7 +10,7 @@
                   {!!Session::get('response')['message']!!}
               @endif
               <div class="text-center pt-4">
-                <h4 style="font-weight: bold;">Want to be a member of Club</h4>
+                <h4 style="font-weight: bold;">Want to be a member of Ambition</h4>
                 <p>Member Registration</p>
               </div>
               <div class=" p-4 mem-form">

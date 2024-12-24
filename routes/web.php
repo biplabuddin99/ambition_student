@@ -89,6 +89,7 @@ use App\Http\Controllers\Mamberpanel\AccountReportController as accreport;
 */
 
 // Become a member login
+Route::get('/onlineApply', [auth::class,'onlineApply'])->name('onlineApply');
 Route::get('/memberRegister', [auth::class,'memberSignUpForm'])->name('member_registration');
 Route::post('/memberRegister', [auth::class,'memberSignUpStore'])->name('memberRegister.store');
 Route::get('/memberLogin', [auth::class,'memberSignInForm'])->name('memberLogin');
@@ -162,8 +163,8 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::resource('year',year::class,['as'=>'admin']);
         Route::resource('pGalleryCat',pGalleryCat::class,['as'=>'admin']);
         Route::resource('pGallery',pGallery::class,['as'=>'admin']);
-        Route::get('pGallerydelete', [pGallery::class, 'delete'])->name('admin.image.delete'); 
-        
+        Route::get('pGallerydelete', [pGallery::class, 'delete'])->name('admin.image.delete');
+
         Route::resource('settings',settings::class,['as'=>'admin']);
         Route::resource('bank',bank::class,['as'=>'admin']);
         Route::resource('tag',tag::class,['as'=>'admin']);
@@ -187,8 +188,8 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::resource('exeCommittee',exeCommittee::class,['as'=>'admin']);
         Route::resource('page',page::class,['as'=>'admin']);
         Route::post('image-upload', [page::class, 'storeImage'])->name('image.upload');
-        
-        
+
+
         Route::get('approved-member', [member::class, 'approvedMember'])->name('admin.approve_member');
         Route::get('sms-to-member', [member::class, 'smsToMember'])->name('admin.sms_to_member');
         Route::post('sms-to-member-success', [member::class, 'sendSmsToMember'])->name('admin.sms_to_member_success');
@@ -210,11 +211,11 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::resource('child_one',child_one::class,['as'=>'admin']);
         Route::resource('child_two',child_two::class,['as'=>'admin']);
         Route::resource('navigate',navigate::class,['as'=>'admin']);
-        
+
         Route::get('onlinepayment',[onlinepayment::class,'index'])->name('admin.onlinepayment');
         Route::get('onlinepayment/accepted',[onlinepayment::class,'accepted'])->name('admin.onlinepayment.accepted');
         Route::get('onlinepayment/update_status/{id}/{status}',[onlinepayment::class,'update_status'])->name('admin.onlinepayment.update_status');
-        
+
         Route::resource('fees_category',fees_category::class,['as'=>'admin']);
         Route::resource('member-invoice',member_invoice::class,['as'=>'admin']);
         Route::post('member-invoice/pay/{id}', [member_invoice::class, 'pay_now'])->name('admin.member-invoice.pay_now');
@@ -278,7 +279,7 @@ Route::group(['middleware'=>isMember::class],function(){
         Route::get('/change-request', [MemberPanel::class,'changeRequest'])->name('member.request');
         Route::post('/online-help-submited', [MemberPanel::class,'memberContactUs'])->name('member.help.store');
         Route::get('/member-due-view', [MemberPanel::class,'member_due'])->name('member.member_due_view');
-        
+
         Route::resource('changeReq',changeReq::class,['as'=>'member']);
         Route::get('/pending-request', [changeReq::class,'pendingRequest'])->name('member.pending_request');
         Route::get('/request-history', [changeReq::class,'requetHistory'])->name('member.request_history');
