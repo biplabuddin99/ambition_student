@@ -37,6 +37,7 @@ use App\Http\Controllers\TotalDueController as tdue;
 use App\Http\Controllers\FoundingCommitteeController as foundCommittee;
 use App\Http\Controllers\CommitteeSessionController as committeeSession;
 use App\Http\Controllers\ExecutiveCommitteeController as exeCommittee;
+use App\Http\Controllers\OnlineApplyController as onlineapply;
 use App\Http\Controllers\Products\UnitController as unit;
 // accounts
 use App\Http\Controllers\Accounts\MasterAccountController as master;
@@ -87,7 +88,7 @@ use App\Http\Controllers\Mamberpanel\AccountReportController as accreport;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::resource('onlineapply',onlineapply::class);
 // Become a member login
 Route::get('/onlineApply', [auth::class,'onlineApply'])->name('onlineApply');
 Route::get('/memberRegister', [auth::class,'memberSignUpForm'])->name('member_registration');

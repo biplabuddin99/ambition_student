@@ -664,7 +664,7 @@
                 <p style="font-size: 7vw;"><span>Online <span class="theme-color">Apply</span></span></p>
               </div>
               <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 apply-text">
-                <a class="shadow" href="{{route('onlineApply')}}">Apply Now</a>
+                <a class="shadow" href="{{route('onlineapply.create')}}">Apply Now</a>
               </div>
             </div>
           </div>

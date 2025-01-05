@@ -12,7 +12,7 @@
                     <div class="col-lg-4 logo-side-section">
                         <div class="loginSideText h-100 ">
                             <div class="body h-100">
-                                <img class="align-self-center p-3" src="{{asset('img/khlogo3.png')}}" width="140px" alt="side image" >
+                                <img class="align-self-center p-3" src="{{asset('img/ambition_logo')}}" width="140px" alt="side image" >
                             </div>
                         </div>
                     </div>
