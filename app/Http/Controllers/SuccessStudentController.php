@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Slider;
+use App\Models\SuccessStudent;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Http\Traits\ImageHandleTraits;
 use Exception;
 
-class SliderController extends Controller
+class SuccessStudentController extends Controller
 {
     use ImageHandleTraits;
     /**
@@ -18,8 +18,8 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $sliders=Slider::paginate(10);
-        return view('slider.index',compact('sliders'));
+        $successStudents =SuccessStudent::paginate(10);
+        return view('successStudent.index',compact('successStudents'));
     }
 
     /**
@@ -29,8 +29,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        return view('slider.create');
-
+        return view('successStudent.create');
     }
 
     /**
@@ -42,15 +41,15 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         try{
-            $slider=new Slider;
+            $success=new SuccessStudent;
             if($request->has('Picture'))
-            $slider->image=$this->resizeImage($request->Picture,'uploads/Slide_image',true,1920,803,true);
-            $slider->link=$request->Link;
-            $slider->short_title=$request->ShortTitle;
-            $slider->long_title=$request->LongTitle;
-            if($slider->save()){
-            Toastr::success('Slider Create Successfully!');
-            return redirect()->route(currentUser().'.slider.index');
+            $success->image=$this->resizeImage($request->Picture,'uploads/successStudent',true,1920,803,true);
+            $success->link=$request->Link;
+            $success->short_title=$request->ShortTitle;
+            $success->long_title=$request->LongTitle;
+            if($success->save()){
+            Toastr::success('Success Student Create Successfully!');
+            return redirect()->route(currentUser().'.successStudent.index');
             } else{
             Toastr::warning('Please try Again!');
             return redirect()->back();
@@ -68,10 +67,10 @@ class SliderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Slider  $slider
+     * @param  \App\Models\SuccessStudent  $successStudent
      * @return \Illuminate\Http\Response
      */
-    public function show(Slider $slider)
+    public function show(SuccessStudent $successStudent)
     {
         //
     }
@@ -79,63 +78,59 @@ class SliderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Slider  $slider
+     * @param  \App\Models\SuccessStudent  $successStudent
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $slider=Slider::findOrFail(encryptor('decrypt',$id));
-        return view('slider.edit',compact('slider'));
+        $successStudent=SuccessStudent::findOrFail(encryptor('decrypt',$id));
+        return view('successStudent.edit',compact('successStudent'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Slider  $slider
+     * @param  \App\Models\SuccessStudent  $successStudent
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         try{
-            $slider=Slider::findOrFail(encryptor('decrypt',$id));
-
-            $path='uploads/Slide_image';
+            $slider=SuccessStudent::findOrFail(encryptor('decrypt',$id));
+            $path='uploads/successStudent';
             if($request->has('Picture') && $request->Picture)
             if($this->deleteImage($slider->image,$path))
                 $slider->image=$this->resizeImage($request->Picture,$path,true,1920,803,true);
-
             $slider->link=$request->Link;
             $slider->short_title=$request->ShortTitle;
             $slider->long_title=$request->LongTitle;
             if($slider->save()){
-            Toastr::success('Slider Update Successfully!');
-            return redirect()->route(currentUser().'.slider.index');
+            Toastr::success('Success tudent Update Successfully!');
+            return redirect()->route(currentUser().'.successStudent.index');
             } else{
              Toastr::warning('Please try Again!');
              return redirect()->back();
             }
-
         }
         catch (Exception $e){
             Toastr::warning('Please try Again!');
             // dd($e);
             return back()->withInput();
-
         }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Slider  $slider
+     * @param  \App\Models\SuccessStudent  $successStudent
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $cat= Slider::findOrFail(encryptor('decrypt',$id));
-        $cat->delete();
-        Toastr::warning('Slider Deleted Permanently!');
+        $success= SuccessStudent::findOrFail(encryptor('decrypt',$id));
+        $success->delete();
+        Toastr::warning('Success Student Deleted Permanently!');
         return redirect()->back();
     }
 }

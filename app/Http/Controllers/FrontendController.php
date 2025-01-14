@@ -2,25 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Facilities;
-use App\Models\contact_reason;
-use App\Models\BenefitsOfMember;
-use App\Models\Page;
-use App\Models\Frontend;
-use App\Models\Notice;
-use App\Models\scroll_notice;
-use App\Models\photoGallaryCategory;
-use App\Models\video_notice;
-use App\Models\OurMember;
-use App\Models\MemberChildren;
-use App\Models\setting;
-use App\Models\Slider;
-use App\Models\total_due;
-use Illuminate\Http\Request;
-use App\Http\Traits\ImageHandleTraits;
-use Brian2694\Toastr\Facades\Toastr;
 use Exception;
+use App\Models\Page;
+use App\Models\Notice;
+use App\Models\Slider;
+use App\Models\setting;
+use App\Models\Frontend;
+use App\Models\OurMember;
+use App\Models\total_due;
+use App\Models\Facilities;
+use App\Models\video_notice;
+use Illuminate\Http\Request;
+use App\Models\scroll_notice;
+use App\Models\contact_reason;
+use App\Models\MemberChildren;
+use App\Models\SuccessStudent;
+use App\Models\BenefitsOfMember;
 use Illuminate\Support\Facades\DB;
+use App\Models\photoGallaryCategory;
+use Brian2694\Toastr\Facades\Toastr;
+use App\Http\Traits\ImageHandleTraits;
+
 class FrontendController extends Controller
 {
     use ImageHandleTraits;
@@ -53,12 +55,13 @@ class FrontendController extends Controller
         $Corporate = OurMember::where('membership_applied',7)->count();
         $Diplomate = OurMember::where('membership_applied',7)->count();
         $ourMember = OurMember::where('show_font',1)->get();
-        $foundMember = DB::table('our_members')
-                ->join('founding_committees', 'our_members.membership_no', '=', 'founding_committees.member_id')
-                ->select('our_members.*')->get();
+        $SuccessStudent = SuccessStudent::select('id','image')->get();
+        // $foundMember = DB::table('our_members')
+        //         ->join('founding_committees', 'our_members.membership_no', '=', 'founding_committees.member_id')
+        //         ->select('our_members.*')->get();
         $benefit = BenefitsOfMember::latest()->take(6)->get();
         $showViewMoreButton = BenefitsOfMember::count() > 6;
-        return view('frontend.home',compact('slider','notice','facilities','pgallery_cat','donor','Service','Life','Temporary','Permanent','Honorary','Corporate','Diplomate','ourMember','benefit','showViewMoreButton','scroll_notice','vNotice','foundMember'));
+        return view('frontend.home',compact('slider','notice','facilities','pgallery_cat','donor','Service','Life','Temporary','Permanent','Honorary','Corporate','Diplomate','ourMember','benefit','showViewMoreButton','scroll_notice','vNotice','SuccessStudent'));
     }
     /**
      * Show the form for creating a new resource.
@@ -139,7 +142,7 @@ class FrontendController extends Controller
 
         return view('frontend.notice.notice',compact('notice'));
     }
-    
+
     /* get daynamic page */
     public function page($slug)
     {

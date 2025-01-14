@@ -15,8 +15,9 @@
             <li class="submenu-item sidebar-item has-sub">
                 <a href="#" class='sidebar-link'> {{__('Front Page Settings')}}</a>
                 <ul class="submenu">
-                    <li class="py-1 submenu-item"><a href="{{route(currentUser().'.scrollN.index')}}">{{__('Scroll Notice')}}</a></li>
                     <li class="py-1 submenu-item"><a href="{{route(currentUser().'.slider.index')}}">{{__('Slider')}}</a></li>
+                    <li class="py-1 submenu-item"><a href="{{route(currentUser().'.scrollN.index')}}">{{__('Scroll Notice')}}</a></li>
+                    <li class="py-1 submenu-item"><a href="{{route(currentUser().'.successStudent.index')}}">{{__('Success Student')}}</a></li>
                     <li class="py-1 submenu-item"><a href="{{route(currentUser().'.benefit.index')}}">{{__('Benefits')}}</a></li>
                     <li class="py-1 submenu-item"><a href="{{route(currentUser().'.tdue.index')}}">{{__('Total Dues')}}</a></li>
                 </ul>
@@ -61,7 +62,7 @@
             </li>
         </ul>
     </li>
-    
+
     <li class="submenu-item sidebar-item has-sub">
         <a href="#" class='sidebar-link'><i class="bi bi-people-fill"></i> <span>{{__('Our Students')}}</span></a>
         <ul class="submenu">

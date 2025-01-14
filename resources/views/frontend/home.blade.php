@@ -64,16 +64,17 @@
           {{-- <div class="our-members">
           </div> --}}
           <h4 class="animate-title title-heading my-4">
-            <a href="{{route('foundmember.list')}}" style="text-decoration: none; color:#2a45e1;">Founding Executive Commitee</a>
+            <a href="{{route('foundmember.list')}}" style="text-decoration: none; color:#2a45e1;">Success Student</a>
             </h4>
           <div class="row">
             <div class="col-12 item pe-3 ps-3">
               <marquee width="100%"  onmouseover="this.stop();" onmouseout="this.start();" direction="left" height="content-fit" class="">
                 <ul class="m-0">
-                  @forelse ($foundMember as $fm)
-                    @if($fm->image != '')
+                  @forelse ($SuccessStudent as $success)
+                    @if($success->image != '')
                       <li class="px-2">
-                        <img src="{{asset('uploads/member_image/'.$fm->image)}}" alt="No Photos" style="width:3cm; height: 4cm; object-fit: cover;">
+                        <img src="{{asset('uploads/successStudent/'.$success->image)}}" alt="No Photos" style="width:500px; height: 500px; object-fit: cover;">
+                        {{-- <img src="{{asset('uploads/member_image/'.$success->image)}}" alt="No Photos" style="width:3cm; height: 4cm; object-fit: cover;"> --}}
                       </li>
                     @endif
                   @empty
@@ -84,9 +85,9 @@
           </div>
         </section>
         {{-- This section is for small view start --}}
-        <section class="container-fluid-fluid pb-2  d-sm-none">
+        {{-- <section class="container-fluid-fluid pb-2  d-sm-none">
           <h4 class="animate-title title-heading mb-3" style="font-size: 32px !important;">
-            <a href="{{route('foundmember.list')}}" style="text-decoration: none; color:#2a2de1;">Founding Executive Commitee</a>
+            <a href="{{route('foundmember.list')}}" style="text-decoration: none; color:#2a2de1;">Success Student</a>
           </h4>
           <div class="row">
             <div class="col-12 item pe-3 ps-3">
@@ -102,7 +103,7 @@
               </marquee>
             </div>
           </div>
-        </section>
+        </section> --}}
         {{-- This section is for small view end --}}
       </div>
     </div>

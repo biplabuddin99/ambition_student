@@ -58,35 +58,35 @@
         </div>
 
         <div class="col-sm-8 col-2 header-right">
-            
+
           <div style="font-size: 10.1pt; " class="d-flex justify-content-end d-none d-md-flex scicon">
             <a class="pt-2" href="#"><i class="bi bi-facebook"></i></a>
             <a class="pt-2" href="#"><i class="bi bi-twitter"></i></a>
             <a class="pt-2" href="#"><i class="bi bi-linkedin"></i></a>
             <a class="pt-2" href="#"><i class="bi bi-youtube"></i></a>
 
-            <a  id="text-right-dec" href="{{route('memLogin')}}">Member Login</a>
-            <a href="{{route('member_registration')}}" class="become-member">Become a Member</a>
+            <a  id="text-right-dec" href="{{route('memLogin')}}">Login</a>
+            <a href="{{route('member_registration')}}" class="become-member">Become a Student</a>
           </div>
-          
+
           <div class="row d-none d-sm-block">
             <div class="col-sm-12 col-12 d-flex justify-content-end desktop-menu" >
-              
+
               <nav class="navbar navbar-expand-md navbar-light pb-0">
                 {{-- <button class="navbar-toggler text-danger" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <i class="bi bi-list"></i>
                 </button> --}}
-              
+
                 <div style="margin-top: 6px;" class="collapse navbar-collapse navbar-collapse-top" id="navbarNav">
-                  
+
                   @php $rows = DB::table('front_menus')->where('parent_id',0)->where('status',1)->orderBy("rang");
                       $flcount=$rows->count();
                   @endphp
                   <ul class="navbar-nav md-screen mr-auto pb-2">
                     @forelse($rows->get() as $i=>$mf)
                       @php $rows_second = DB::select("SELECT * FROM front_menus WHERE parent_id='{$mf->id}' and status='1' ORDER BY rang"); @endphp
-                      
-                        @if($rows_second) 
+
+                        @if($rows_second)
                         <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle nav_a_padding " href="{{$mf->href?url($mf->href):'#'}}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="">{{$mf->name}}</span>
@@ -159,14 +159,14 @@
           </div>
           <div class="row d-sm-none">
             <div class="col-sm-12 col-12 d-flex justify-content-end mobile-menu" >
-              
+
               <nav class="navbar navbar-expand-md navbar-light pb-0">
                 <button class="navbar-toggler text-danger" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <i class="bi bi-list"></i>
                 </button>
-              
+
                 <div style="margin-top: 6px;" class="collapse navbar-collapse navbar-collapse-top small-view" id="navbarNav">
-                  
+
                   @php $rows = DB::table('front_menus')->where('parent_id',0)->where('status',1)->orderBy("rang");
                       $flcount=$rows->count();
                   @endphp
@@ -176,8 +176,8 @@
                     </div>
                     @forelse($rows->get() as $i=>$mf)
                       @php $rows_second = DB::select("SELECT * FROM front_menus WHERE parent_id='{$mf->id}' and status='1' ORDER BY rang"); @endphp
-                      
-                        @if($rows_second) 
+
+                        @if($rows_second)
                         <li class="nav-item dropdown menu-li-border py-2">
                           <img class="d-lg-none d-sm-block ps-2 pb-1" src="{{asset('uploads/menu_image/'.$mf->menu_icon)}}" width="30px" alt="">
                           <a class="nav-link dropdown-toggle nav_a_padding " href="{{$mf->href?url($mf->href):'#'}}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -257,7 +257,7 @@
   <div class="main">
     @yield('content')
   </div>
-    
+
 
   <!--  support -->
   <section class="support justify-content-center d-none d-sm-block">
@@ -372,7 +372,7 @@
         </div>
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-5 copyright">
-            <p>&copy copyright 2024 Ambition Student Consultancy bd | Chittagong</p>
+            <p>&copy copyright 2025 Ambition Student Consultancy bd | Chittagong</p>
           </div>
           {{-- <div class="col-sm-12 col-md-12 col-lg-4 d-flex payment-img">
             <p>We Accept</p>
@@ -406,12 +406,12 @@
     document.addEventListener('DOMContentLoaded', function () {
       var toggleButton = document.querySelector('.navbar-toggler');
       var collapseElement = document.querySelector('.navbar-collapse');
-  
+
       collapseElement.addEventListener('show.bs.collapse', function () {
         // Change icon to 'X' when the navbar is collapsing
         toggleButton.innerHTML = '<i class="bi bi-x"></i>';
       });
-  
+
       collapseElement.addEventListener('hide.bs.collapse', function () {
         // Change icon to 'list' when the navbar is expanding
         toggleButton.innerHTML = '<i class="bi bi-list"></i>';
@@ -420,7 +420,7 @@
   </script>
   <script src="https://unpkg.com/scrollreveal"></script>
   <script>
-      ScrollReveal({ 
+      ScrollReveal({
         reset: true ,
         distance: '60px',
         duration: 800,
@@ -432,13 +432,13 @@
   </script>
 
 
-    
+
     <!-- owl js -->
     <script src="{{ asset('OwlCarousel2-2.3.4/vendors/jquery.min.js')}}"></script>
     <script src="{{ asset('OwlCarousel2-2.3.4/owl.carousel.min.js')}}"></script>
     <!-- My JS -->
     <script src="{{ asset('js/app.js')}}?id=1"></script>
-    
+
   {{-- tostr css --}}
   <link rel="stylesheet" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 
