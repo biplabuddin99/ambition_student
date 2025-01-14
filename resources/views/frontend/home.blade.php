@@ -189,7 +189,8 @@
                   @forelse ($vNotice as $v)
                       @if ($v->link != '')
                         <div class="carousel-item active" >
-                          <iframe class="notice-img" width="100%" height="350px" src="https://www.youtube.com/shorts/{{$v->link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                          {{-- <iframe class="notice-img" width="100%" height="350px" src="https://www.youtube.com/embed/of-mXZsbHVA?si=6cSfRZ6CklyOHtaq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> --}}
+                          <iframe class="notice-img" width="100%" height="350px" src="https://www.youtube.com/embed/{{$v->link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                           <p style="font-size: 20px; color:rgb(0, 60, 255); margin-top:6px; text-align:center;">{{$v->video_caption}}</p>
                         </div>
                       @else

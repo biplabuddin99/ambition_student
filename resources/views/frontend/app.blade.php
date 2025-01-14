@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Ambition Student | @yield('pageTitle')</title>
+    <link rel="shortcut icon" href="{{ asset('assets/images/logo/ambition_logo.jpg') }}" type="image/png">
     <!-- Bootstrap 5.2 -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
