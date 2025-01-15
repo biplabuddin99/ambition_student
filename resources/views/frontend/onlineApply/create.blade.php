@@ -106,6 +106,26 @@
         padding: 5px;
     }
 
+    .language-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.language-table th,
+.language-table td {
+    border: 1px solid #000;
+    padding: 5px;
+}
+
+.language-table input {
+    width: 90%;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid red;
+}
+
 </style>
 <!-- // Basic multiple Column Form section start -->
 <section class="container py-4">
@@ -145,7 +165,7 @@
                     <div class="section">
                         <div class="d-flex">
                             <h3>Educational Qualification</h3>
-                            <span class="text-secondary mt-3">(if have more education, click<i class="bi bi-plus-square-fill"></i> button)</span>
+                            <span onClick='addEdu();' class="text-secondary mt-3">(if have more education, click<i class="bi bi-plus-square-fill"></i> button)</span>
                         </div>
                         <table border="1" width="100%" style="border-collapse: collapse;">
                             <thead>
@@ -157,74 +177,74 @@
                                     <th style="width: 12%;">GPA/CGPA</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="education_details">
                                 <tr>
-                                    <td><input type="text" name="degree1" placeholder="SSC"></td>
+                                    <td><input type="text" name="degree[]" placeholder="SSC"></td>
                                     <td>
                                         {{-- <input type="text" name="year1" placeholder="Year"> --}}
                                         <select id="year" name="year[]" class="form-control ">
                                             {{ $last= date('Y')-120 }}
                                             {{ $now = date('Y') }}
-
+                                            <option value="">Select</option>
                                             @for ($i = $now; $i >= $last; $i--)
                                                 <option value="{{ $i }}">{{ $i }}</option>
                                             @endfor
                                             </select>
                                     </td>
-                                    <td><input type="text" name="institute1" placeholder="Institute"></td>
-                                    <td><input type="text" name="subject1" placeholder="Subject"></td>
-                                    <td><input type="text" name="gpa1" placeholder="GPA/CGPA"></td>
+                                    <td><input type="text" name="institute[]" placeholder="Institute"></td>
+                                    <td><input type="text" name="subject[]" placeholder="Subject"></td>
+                                    <td><input type="text" name="gpa[]" placeholder="GPA/CGPA"></td>
                                 </tr>
                                 <tr>
-                                    <td><input type="text" name="degree2" placeholder="HSC"></td>
+                                    <td><input type="text" name="degree[]" placeholder="HSC"></td>
                                     <td>
                                         {{-- <input type="text" name="year1" placeholder="Year"> --}}
                                         <select id="year" name="year[]" class="form-control ">
                                             {{ $last= date('Y')-120 }}
                                             {{ $now = date('Y') }}
-
+                                            <option value="">Select</option>
                                             @for ($i = $now; $i >= $last; $i--)
                                                 <option value="{{ $i }}">{{ $i }}</option>
                                             @endfor
                                             </select>
                                     </td>
-                                    <td><input type="text" name="institute2"></td>
-                                    <td><input type="text" name="subject2"></td>
-                                    <td><input type="text" name="gpa2"></td>
+                                    <td><input type="text" name="institute[]" placeholder="Institute"></td>
+                                    <td><input type="text" name="subject[]" placeholder="Subject"></td>
+                                    <td><input type="text" name="gpa[]" placeholder="GPA/CGPA"></td>
                                 </tr>
                                 <tr>
-                                    <td><input type="text" name="degree3" placeholder="Honours"></td>
+                                    <td><input type="text" name="degree[]" placeholder="Honours"></td>
                                     <td>
                                         {{-- <input type="text" name="year1" placeholder="Year"> --}}
                                         <select id="year" name="year[]" class="form-control ">
                                             {{ $last= date('Y')-120 }}
                                             {{ $now = date('Y') }}
-
+                                            <option value="">Select</option>
                                             @for ($i = $now; $i >= $last; $i--)
                                                 <option value="{{ $i }}">{{ $i }}</option>
                                             @endfor
                                             </select>
                                     </td>
-                                    <td><input type="text" name="institute3"></td>
-                                    <td><input type="text" name="subject3"></td>
-                                    <td><input type="text" name="gpa3"></td>
+                                    <td><input type="text" name="institute[]" placeholder="Institute"></td>
+                                    <td><input type="text" name="subject[]" placeholder="Subject"></td>
+                                    <td><input type="text" name="gpa[]" placeholder="GPA/CGPA"></td>
                                 </tr>
                                 <tr>
-                                    <td><input type="text" name="degree3" placeholder="Masters"></td>
+                                    <td><input type="text" name="degree[]" placeholder="Masters"></td>
                                     <td>
                                         {{-- <input type="text" name="year1" placeholder="Year"> --}}
-                                        <select id="year" name="year[]" class="form-control ">
+                                        <select id="year" name="year[]" class="form-control">
                                             {{ $last= date('Y')-120 }}
                                             {{ $now = date('Y') }}
-
+                                            <option value="">Select</option>
                                             @for ($i = $now; $i >= $last; $i--)
                                                 <option value="{{ $i }}">{{ $i }}</option>
                                             @endfor
                                             </select>
                                     </td>
-                                    <td><input type="text" name="institute3"></td>
-                                    <td><input type="text" name="subject3"></td>
-                                    <td><input type="text" name="gpa3"></td>
+                                    <td><input type="text" name="institute[]" placeholder="Institute"></td>
+                                    <td><input type="text" name="subject[]" placeholder="Subject"></td>
+                                    <td><input type="text" name="gpa[]" placeholder="GPA/CGPA"></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -235,39 +255,65 @@
                         <h3>Professional Qualification</h3>
                         <div class="form-row">
                             <label for="years">Number of Years:</label>
-                            <input type="number" id="years" name="years" placeholder="e.g., 5">
+                            <input type="number" id="years" name="qualification_year" placeholder="e.g., 5">
                         </div>
                         <div class="form-row">
                             <label for="current-work">Current Works:</label>
-                            <input type="text" id="current-work" name="current-work" placeholder="Your current role">
+                            <input type="text" id="current-work" name="current_work" placeholder="Your current role">
                         </div>
                     </div>
 
-                    <div class="section">
+                    {{-- <div class="section">
                         <h3>Language Proficiency</h3>
                         <div class="form-row">
                             <label for="ielts">IELTS Score:</label>
-                            <input type="text" id="ielts" name="ielts">
+                            <input type="text" id="ielts" name="ielts_score">
                         </div>
                         <div class="form-row">
                             <label for="duolingo">Duolingo Score:</label>
-                            <input type="text" id="duolingo" name="duolingo">
+                            <input type="text" id="duolingo" name="duolingo_score">
                         </div>
                         <div class="form-row">
                             <label for="pte">PTE Score:</label>
-                            <input type="text" id="pte" name="pte">
+                            <input type="text" id="pte" name="pte_score">
                         </div>
+                    </div> --}}
+
+                    <!-- Language Proficiency -->
+                    <div class="section">
+                        <h3>Language Proficiency</h3>
+                        <table class="language-table">
+                            <tr>
+                                <th>IELTS</th>
+                                <th>OIETC/ELLT</th>
+                                <th>Duolingo</th>
+                                <th>MOI</th>
+                                <th>PTE</th>
+                                <th>OTHERS</th>
+                            </tr>
+                            <tr>
+                                <td><input type="text" id="ielts" name="ielts_score"></td>
+                                <td><input type="text" id="oietc_elt" name="oietc_elt_score"></td>
+                                <td><input type="text" id="duolingo" name="duolingo_score"></td>
+                                <td><input type="text" id="moi" name="moi_score"></td>
+                                <td><input type="text" id="pte" name="pte_score"></td>
+                                <td><input type="text" id="others" name="others_score"></td>
+                            </tr>
+                        </table>
                     </div>
 
                     <!-- Field of Study -->
                     <div class="section">
                         <h3>Field of Study</h3>
                         <div class="checkbox-group">
-                            <label><input type="checkbox" name="field" value="Diploma Program"> Diploma Program</label>
-                            <label><input type="checkbox" name="field" value="Undergraduate Programs"> Undergraduate Programs</label>
-                            <label><input type="checkbox" name="field" value="Postgraduate Programs"> Postgraduate Programs</label>
-                            <label><input type="checkbox" name="field" value="Doctoral Program"> Doctoral Program</label>
-                            <label><input type="checkbox" name="field" value="Professional Degrees"> Professional Degrees</label>
+                            @foreach ($fieldstudy as $field)
+                            <label><input type="checkbox" name="field_of_study[]" value="{{ $field->id }}"> {{ $field->name }}</label>
+                            @endforeach
+                            {{-- <label><input type="checkbox" name="field_of_study[]" value="Diploma Program"> Diploma Program</label>
+                            <label><input type="checkbox" name="field_of_study[]" value="Undergraduate Programs"> Undergraduate Programs</label>
+                            <label><input type="checkbox" name="field_of_study[]" value="Postgraduate Programs"> Postgraduate Programs</label>
+                            <label><input type="checkbox" name="field_of_study[]" value="Doctoral Program"> Doctoral Program</label>
+                            <label><input type="checkbox" name="field_of_study[]" value="Professional Degrees"> Professional Degrees</label> --}}
                         </div>
                     </div>
 
@@ -275,13 +321,16 @@
                     <div class="section">
                         <h3>Country Preference</h3>
                         <div class="checkbox-group">
-                            <label><input type="checkbox" name="country" value="UK"> UK</label>
-                            <label><input type="checkbox" name="country" value="USA"> USA</label>
-                            <label><input type="checkbox" name="country" value="Canada"> Canada</label>
-                            <label><input type="checkbox" name="country" value="Australia"> Australia</label>
-                            <label><input type="checkbox" name="country" value="Denmark"> Denmark</label>
-                            <label><input type="checkbox" name="country" value="Finland"> Finland</label>
-                            <label><input type="checkbox" name="country" value="Ireland"> Ireland</label>
+                            @foreach ($countryperf as $country)
+                            <label><input type="checkbox" name="country_preference[]" value="{{ $country->id }}"> {{ $country->name }}</label>
+                            @endforeach
+                            {{-- <label><input type="checkbox" name="country_preference[]" value="UK"> UK</label>
+                            <label><input type="checkbox" name="country_preference[]" value="USA"> USA</label>
+                            <label><input type="checkbox" name="country_preference[]" value="Canada"> Canada</label>
+                            <label><input type="checkbox" name="country_preference[]" value="Australia"> Australia</label>
+                            <label><input type="checkbox" name="country_preference[]" value="Denmark"> Denmark</label>
+                            <label><input type="checkbox" name="country_preference[]" value="Finland"> Finland</label>
+                            <label><input type="checkbox" name="country_preference[]" value="Ireland"> Ireland</label> --}}
                         </div>
                     </div>
 
@@ -299,26 +348,22 @@
     <script>
         function addEdu(){
         var row=`
-        <tr>
-            <td><input class="form-control" type="text" name="degree[]" value="" placeholder="ex:SSC"></td>
-            <td><input class="form-control Board" type="text" name="board[]" value="" placeholder="Board"></td>
-            <td><input class="form-control Subject" type="text" name="subject[]" value="" placeholder="Subject"></td>
-            <td><select id="year" name="year[]" class="form-control ">
-                {{ $last= date('Y')-120 }}
-                {{ $now = date('Y') }}
+            <tr>
+                <td><input type="text" name="degree[]" placeholder="Degree"></td>
+                <td>
+                    <select id="year" name="year[]" class="form-control ">
+                        {{ $last= date('Y')-120 }}
+                        {{ $now = date('Y') }}
 
-                @for ($i = $now; $i >= $last; $i--)
-                    <option value="{{ $i }}">{{ $i }}</option>
-                @endfor
-                </select>
-            </td>
-            <td><input class="form-control Result" type="text" name="result[]" value="" placeholder="Result"></td>
-            <td><input class="form-control Duration" type="number" name="duration[]" value="" placeholder="Duration"></td>
-            <td>
-                <span onClick='removeEdu(this);' class="delete-row text-danger"><i class="bi bi-trash-fill"></i></span>
-                <span onClick='addEdu();' class="add-row text-primary"><i class="bi bi-plus-square-fill"></i></span>
-            </td>
-        </tr>`;
+                        @for ($i = $now; $i >= $last; $i--)
+                            <option value="{{ $i }}">{{ $i }}</option>
+                        @endfor
+                        </select>
+                </td>
+                <td><input type="text" name="institute[]" placeholder="Institute"></td>
+                <td><input type="text" name="subject[]" placeholder="Subject"></td>
+                <td><input type="text" name="gpa[]" placeholder="GPA/CGPA"></td>
+            </tr>`;
             $('#education_details').append(row);
         }
 
