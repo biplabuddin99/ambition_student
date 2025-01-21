@@ -366,11 +366,11 @@
           </div>
         </div>
         <hr />
-        <div class="row">
+        {{-- <div class="row">
           <div class="col-12">
             <img class="img-fluid" src="{{asset('images/weaccept.jpeg')}}" width="100%" alt="image" />
           </div>
-        </div>
+        </div> --}}
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-5 copyright">
             <p>&copy copyright 2025 Ambition Student Consultancy bd | Chittagong</p>
