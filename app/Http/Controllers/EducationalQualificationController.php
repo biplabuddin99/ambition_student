@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\EducationalQualification;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
+use App\Models\EducationalQualification;
 
 class EducationalQualificationController extends Controller
 {
@@ -78,8 +79,11 @@ class EducationalQualificationController extends Controller
      * @param  \App\Models\EducationalQualification  $educationalQualification
      * @return \Illuminate\Http\Response
      */
-    public function destroy(EducationalQualification $educationalQualification)
+    public function destroy($id)
     {
-        //
+        $cat= EducationalQualification::findOrFail(encryptor('decrypt',$id));
+        $cat->delete();
+        Toastr::warning('Educational Qualification Deleted Permanently!');
+        return redirect()->back();
     }
 }

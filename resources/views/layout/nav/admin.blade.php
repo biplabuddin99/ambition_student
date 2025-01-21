@@ -67,7 +67,8 @@
         <a href="#" class='sidebar-link'><i class="bi bi-people-fill"></i> <span>{{__('Our Students')}}</span></a>
         <ul class="submenu">
             <li class="py-1 submenu-item"><a href="{{route(currentUser().'.memberType.index')}}">{{__('Student Type')}}</a></li>
-            <li class="py-1 submenu-item"><a href="{{route(currentUser().'.ourMember.index')}}">{{__('Applied Student')}}</a></li>
+            <li class="py-1 submenu-item"><a href="{{route(currentUser().'.onlineapply.index')}}">{{__('Applied Student')}}</a></li>
+            {{-- <li class="py-1 submenu-item"><a href="{{route(currentUser().'.ourMember.index')}}">{{__('Applied Student')}}</a></li> --}}
             <li class="py-1 submenu-item"><a href="{{route(currentUser().'.approve_member')}}">{{__('Approved Student')}}</a></li>
             <li class="py-1 submenu-item"><a href="{{route(currentUser().'.sms_to_member')}}">{{__('SMS To Student')}}</a></li>
         </ul>

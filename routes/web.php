@@ -39,6 +39,7 @@ use App\Http\Controllers\FoundingCommitteeController as foundCommittee;
 use App\Http\Controllers\CommitteeSessionController as committeeSession;
 use App\Http\Controllers\ExecutiveCommitteeController as exeCommittee;
 use App\Http\Controllers\OnlineApplyController as onlineapply;
+use App\Http\Controllers\EducationalQualificationController as onlineedu;
 use App\Http\Controllers\Products\UnitController as unit;
 // accounts
 use App\Http\Controllers\Accounts\MasterAccountController as master;
@@ -161,6 +162,8 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::resource('successStudent',SuccessStudentController::class,['as'=>'admin']);
         Route::resource('memberType',memberType::class,['as'=>'admin']);
         Route::resource('ourMember',member::class,['as'=>'admin']);
+        Route::resource('onlineapply',onlineapply::class,['as'=>'admin']);
+        Route::resource('onlineedu',onlineedu::class,['as'=>'admin']);
         Route::resource('notice',notice::class,['as'=>'admin']);
         Route::resource('facilities',facilities::class,['as'=>'admin']);
         Route::resource('year',year::class,['as'=>'admin']);

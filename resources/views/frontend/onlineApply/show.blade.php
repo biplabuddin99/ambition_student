@@ -5,11 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ambition Form</title>
+    <title>{{ $onlineapply->name }}_{{ \Carbon\Carbon::parse($onlineapply->created_at)->format('d/m/Y') }}</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 15px;
             line-height: 1.5;
         }
 
@@ -17,7 +17,7 @@
             width: 800px;
             margin: 0 auto;
             border: 1px solid #ddd;
-            padding: 20px;
+            padding: 15px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
@@ -26,8 +26,8 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 2px solid #ddd;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+            padding-bottom: 8px;
+            margin-bottom: 18px;
         }
 
         .header img {
@@ -60,7 +60,7 @@
         }
 
         .section {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .checkbox-group {
@@ -69,7 +69,7 @@
         }
 
         .checkbox-group label {
-            margin-right: 15px;
+            margin-right: 13px;
             font-weight: normal;
         }
 
@@ -125,6 +125,20 @@
             box-sizing: border-box;
             border: 1px solid red;
         }
+        .btnprint {
+    padding: 10px 20px;           /* Add padding for buttons */
+    font-size: 16px;              /* Set font size */
+    border: none;                 /* Remove border */
+    background-color: #007bff;    /* Button background color */
+    color: white;                 /* Button text color */
+    cursor: pointer;              /* Pointer cursor on hover */
+    border-radius: 5px;           /* Rounded corners */
+    transition: background-color 0.3s ease; /* Add hover transition */
+}
+
+.btnprint:hover {
+    background-color: #0056b3;    /* Change color on hover */
+}
     </style>
     <script>
         function print_() {
@@ -134,6 +148,7 @@
 </head>
 
 <body>
+    {{-- <a href="{{route('front')}}"><button class="btnprint noprint">Back</button></a> --}}
     <button onclick="history.back()" class="btnprint noprint">Back</button>
     <button onclick="print_()" class="btnprint noprint">Print</button>
     <div class="container">
@@ -254,17 +269,54 @@
             </table>
         </div>
 
+        <!-- Field of Study -->
+        <div class="section">
+            <h3>Field of Study</h3>
+            <div class="checkbox-group">
+                @foreach ($fieldstudy as $field)
+                <label>
+                    <input
+                        type="checkbox"
+                        name="field_of_study[]"
+                        value="{{ $field->id }}"
+                        {{ in_array($field->id, $selectedFields) ? 'checked' : '' }}
+                    >
+                    {{ $field->name }}
+                </label>
+                {{-- <label><input type="checkbox" name="country_preference[]" value="{{ $country->id }}"> {{ $country->name }}</label> --}}
+                @endforeach
+                {{-- <label><input type="checkbox" name="country_preference[]" value="UK"> UK</label>
+                <label><input type="checkbox" name="country_preference[]" value="USA"> USA</label>
+                <label><input type="checkbox" name="country_preference[]" value="Canada"> Canada</label>
+                <label><input type="checkbox" name="country_preference[]" value="Australia"> Australia</label>
+                <label><input type="checkbox" name="country_preference[]" value="Denmark"> Denmark</label>
+                <label><input type="checkbox" name="country_preference[]" value="Finland"> Finland</label>
+                <label><input type="checkbox" name="country_preference[]" value="Ireland"> Ireland</label> --}}
+            </div>
+        </div>
         <!-- Country Preference -->
         <div class="section">
             <h3>Country Preference</h3>
             <div class="checkbox-group">
-                <label><input type="checkbox" name="country" value="UK"> UK</label>
-                <label><input type="checkbox" name="country" value="USA"> USA</label>
-                <label><input type="checkbox" name="country" value="Canada"> Canada</label>
-                <label><input type="checkbox" name="country" value="Australia"> Australia</label>
-                <label><input type="checkbox" name="country" value="Denmark"> Denmark</label>
-                <label><input type="checkbox" name="country" value="Finland"> Finland</label>
-                <label><input type="checkbox" name="country" value="Ireland"> Ireland</label>
+                @foreach ($countryperf as $country)
+                <label>
+                    <input
+                        type="checkbox"
+                        name="field_of_study[]"
+                        value="{{ $country->id }}"
+                        {{ in_array($country->id, $selectedCountry) ? 'checked' : '' }}
+                    >
+                    {{ $country->name }}
+                </label>
+                {{-- <label><input type="checkbox" name="country_preference[]" value="{{ $country->id }}"> {{ $country->name }}</label> --}}
+                @endforeach
+                {{-- <label><input type="checkbox" name="country_preference[]" value="UK"> UK</label>
+                <label><input type="checkbox" name="country_preference[]" value="USA"> USA</label>
+                <label><input type="checkbox" name="country_preference[]" value="Canada"> Canada</label>
+                <label><input type="checkbox" name="country_preference[]" value="Australia"> Australia</label>
+                <label><input type="checkbox" name="country_preference[]" value="Denmark"> Denmark</label>
+                <label><input type="checkbox" name="country_preference[]" value="Finland"> Finland</label>
+                <label><input type="checkbox" name="country_preference[]" value="Ireland"> Ireland</label> --}}
             </div>
         </div>
     </div>
