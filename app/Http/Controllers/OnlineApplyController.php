@@ -76,6 +76,7 @@ class OnlineApplyController extends Controller
             // $online->country_preference=$request->country_preference;
             // if($request->has('Picture'))
             // $online->image=$this->resizeImage($request->Picture,'uploads/onlineStudent',true,1920,803,true);
+            $online->status=0;
             if($online->save()){
                 if($request->year){
                     foreach($request->year as $i=>$year){
@@ -164,6 +165,7 @@ class OnlineApplyController extends Controller
             $online->duolingo_score=$request->duolingo_score;
             $online->moi_score=$request->moi_score;
             $online->pte_score=$request->pte_score;
+            $online->status=0;
             $online->others_score=$request->others_score;
             $online->field_of_study=$request->field_of_study?implode(',',$request->field_of_study):'';
             $online->country_preference=$request->country_preference?implode(',',$request->country_preference):'';

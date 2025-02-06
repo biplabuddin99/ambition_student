@@ -56,7 +56,7 @@ class OurMemberController extends Controller
         if($request->nane)
             $ourmember=$ourmember->where('id',$request->nane);
 
-        $ourmember=$ourmember->where('status',2)->paginate(10);
+        $ourmember=$ourmember->where('status',5)->paginate(10);
         return view('ourmember.approveMember',compact('ourmember','member','mType'));
     }
 
@@ -105,7 +105,7 @@ class OurMemberController extends Controller
            return back()->withInput();
        }
    }
-    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -223,7 +223,7 @@ class OurMemberController extends Controller
                 $request->nominee_photo->move(public_path('uploads/nominee'), $data);
                 $member->nominee_photo=$data;
             }
-           
+
             $member->show_font=0;
             $member->status=1;
             if($member->save()){
@@ -422,7 +422,7 @@ class OurMemberController extends Controller
             $member->membership_no=$request->membershipno;
             $member->status=$request->status;
 
-            
+
             if($member->save()){
                 if($request->status==2){
                     $member->member_id='0'.Carbon::now()->format('y'). str_pad((OurMember::whereYear('created_at', Carbon::now()->year)->where('status',2)->count() + 1),3,"0",STR_PAD_LEFT);
