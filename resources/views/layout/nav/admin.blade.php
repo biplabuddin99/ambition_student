@@ -73,14 +73,14 @@
             <li class="py-1 submenu-item"><a href="{{route(currentUser().'.sms_to_member')}}">{{__('Mail To Student')}}</a></li>
         </ul>
     </li>
-    <li class="submenu-item sidebar-item has-sub">
+    {{-- <li class="submenu-item sidebar-item has-sub">
         <a href="#" class='sidebar-link'><i class="bi bi-people-fill"></i> <span>{{__('Committees & Forums')}}</span></a>
         <ul class="submenu">
             <li class="py-1 submenu-item"><a href="{{route(currentUser().'.committeeSession.index')}}">{{__('Committee Session')}}</a></li>
             <li class="py-1 submenu-item"><a href="{{route(currentUser().'.foundCommittee.index')}}">{{__('Foundind Committees')}}</a></li>
             <li class="py-1 submenu-item"><a href="{{route(currentUser().'.exeCommittee.index')}}">{{__('Executive Committee')}}</a></li>
         </ul>
-    </li>
+    </li> --}}
     <li class="submenu-item sidebar-item has-sub">
         <a href="#" class='sidebar-link'><i class="bi bi-telephone-fill"></i> <span>{{__('Contact Us')}}</span></a>
         <ul class="submenu">
@@ -90,26 +90,26 @@
             <li class="py-1 submenu-item"><a href="{{route(currentUser().'.member_contact')}}">{{__('Member Portal Contact List')}}</a></li>
         </ul>
     </li>
-    <li class="submenu-item sidebar-item has-sub">
+    {{-- <li class="submenu-item sidebar-item has-sub">
         <a href="#" class='sidebar-link'><i class="bi bi-cash-coin"></i> <span>{{__('Payment')}}</span></a>
         <ul class="submenu">
             <li class="py-1 submenu-item"><a href="{{route(currentUser().'.payment.index')}}">{{__('Payments')}}</a></li>
             <li class="py-1 submenu-item"><a href="{{route(currentUser().'.ppurpose.index')}}">{{__('Payment Purpose')}}</a></li>
         </ul>
-    </li>
-    <li class="submenu-item sidebar-item has-sub">
+    </li> --}}
+    {{-- <li class="submenu-item sidebar-item has-sub">
         <a href="#" class='sidebar-link'><i class="bi bi-envelope"></i> <span>{{__('Change Request')}}</span></a>
         <ul class="submenu">
             <li class="py-1 submenu-item"><a href="{{route(currentUser().'.changeReq.index')}}">{{__('Change Request List')}}</a></li>
         </ul>
-    </li>
-    <li class="submenu-item sidebar-item has-sub">
+    </li> --}}
+    {{-- <li class="submenu-item sidebar-item has-sub">
         <a href="#" class='sidebar-link'><i class="bi bi-people-fill"></i><span>{{__('CRM')}}</span></a>
         <ul class="submenu">
             <li  class="py-1 submenu-item"><a href="{{route(currentUser().'.memberType.index')}}">Member Type</a></li>
             <li  class="py-1 submenu-item"><a href="{{route(currentUser().'.member-invoice.index')}}">Invoice</a></li>
         </ul>
-    </li>
+    </li> --}}
     {{-- <li class="sidebar-item has-sub">
         <a href="#" class='sidebar-link'>
             <i class="bi bi-calculator"></i>
