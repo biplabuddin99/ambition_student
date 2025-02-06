@@ -19,7 +19,7 @@
                     <li class="py-1 submenu-item"><a href="{{route(currentUser().'.scrollN.index')}}">{{__('Scroll Notice')}}</a></li>
                     <li class="py-1 submenu-item"><a href="{{route(currentUser().'.successStudent.index')}}">{{__('Success Student')}}</a></li>
                     <li class="py-1 submenu-item"><a href="{{route(currentUser().'.benefit.index')}}">{{__('Benefits')}}</a></li>
-                    <li class="py-1 submenu-item"><a href="{{route(currentUser().'.tdue.index')}}">{{__('Total Dues')}}</a></li>
+                    {{-- <li class="py-1 submenu-item"><a href="{{route(currentUser().'.tdue.index')}}">{{__('Total Dues')}}</a></li> --}}
                 </ul>
             </li>
             <li class="submenu-item sidebar-item has-sub">
@@ -52,10 +52,10 @@
                 <ul class="submenu">
                     <li class="py-1 submenu-item"><a href="{{route(currentUser().'.country.index')}}">{{__('Country')}}</a></li>
                     {{-- <li class="py-1 submenu-item"><a href="{{route(currentUser().'.division.index')}}">{{__('Division')}}</a></li> --}}
-                    <li class="py-1 submenu-item"><a href="{{route(currentUser().'.district.index')}}">{{__('District')}}</a></li>
+                    {{-- <li class="py-1 submenu-item"><a href="{{route(currentUser().'.district.index')}}">{{__('District')}}</a></li> --}}
                     {{-- <li class="py-1 submenu-item"><a href="{{route(currentUser().'.thana.index')}}">{{__('Thana')}}</a></li> --}}
                     <li class="py-1 submenu-item"><a href="{{route(currentUser().'.admin.index')}}">{{__('Users')}}</a></li>
-                    <li class="py-1 submenu-item"><a href="{{route(currentUser().'.bank.index')}}">{{__('Bank List')}}</a></li>
+                    {{-- <li class="py-1 submenu-item"><a href="{{route(currentUser().'.bank.index')}}">{{__('Bank List')}}</a></li> --}}
                     <li class="py-1 submenu-item"><a href="{{route(currentUser().'.terms.index')}}">{{__('Terms & Condition')}}</a></li>
                     <li class="py-1 submenu-item"><a href="{{route(currentUser().'.settings.index')}}">{{__('Website Settings')}}</a></li>
                 </ul>
