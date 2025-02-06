@@ -135,7 +135,7 @@
             <div class="form-container">
                 <h4 class="form-header">Please assist us with counseling by completing this form</h4>
 
-                <form class="form" method="post" enctype="multipart/form-data" action="{{route('onlineapply.store')}}">
+                <form class="form" method="post" enctype="multipart/form-data" action="{{route('onlineapply.store')}}" onsubmit="return confirmSubmit(event)">
                     @csrf
                     <!-- Personal Details -->
                     <div class="section section-flex">
@@ -369,6 +369,15 @@
 
         function removeEdu(e){
             $(e).closest('tr').remove();
+        }
+    </script>
+    <script>
+        function confirmSubmit(event) {
+            if (!confirm("Are you sure you want to submit?")) {
+                event.preventDefault(); // Prevent form submission if "Cancel" is clicked
+                return false;
+            }
+            return true; // Submit the form if "OK" is clicked
         }
     </script>
 @endpush
