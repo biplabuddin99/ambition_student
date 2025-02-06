@@ -373,7 +373,7 @@
     </script>
     <script>
         function confirmSubmit(event) {
-            if (!confirm("Are you sure you want to submit?")) {
+            if (!confirm("Are you sure you want to Save?")) {
                 event.preventDefault(); // Prevent form submission if "Cancel" is clicked
                 return false;
             }

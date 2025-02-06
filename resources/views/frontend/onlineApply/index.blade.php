@@ -52,10 +52,10 @@
                                                 href="{{ route(currentUser() . '.member_document', encryptor('encrypt', $p->id)) }}">
                                                 <i class="bi bi-card-image"></i>
                                             </a>&nbsp; --}}
-                                            {{-- <a
+                                            <a
                                                 href="{{ route(currentUser() . '.onlineapply.edit', encryptor('encrypt', $p->id)) }}">
                                                 <i class="bi bi-pencil-square"></i>
-                                            </a> &nbsp; --}}
+                                            </a> &nbsp;
                                             <a class="text-danger" href="javascript:void()"
                                                 onclick="$('#form{{ $p->id }}').submit()">
                                                 <i class="bi bi-trash"></i>

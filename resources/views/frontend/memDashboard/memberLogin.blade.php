@@ -20,15 +20,15 @@
                     <div class="col-lg-8">
                         <div class="text-center pt-4">
                             <span><i class="bi bi-person-circle" style="font-size: 3rem; color:#815B5B"></i></span>
-                            <p>Member Login</p>
+                            <p>Student Login</p>
                         </div>
                         <div class="p-4 mem-form">
                             <form class="form" method="post" action="{{route('memlogin.check')}}">
                                 @csrf
                                 <div class="col-12 py-2">
                                     <div class="form-group">
-                                        <label for="memberId">Member ID</label>
-                                        <input type="text" id="memberId" class="form-control input-bg" placeholder="Member id" onfocus="this.placeholder = ''" value="{{ old('memberId')}}" onblur="this.placeholder = 'Member id'" name="memberId">
+                                        <label for="memberId">Student ID</label>
+                                        <input type="text" id="memberId" class="form-control input-bg" placeholder="Member id" onfocus="this.placeholder = ''" value="{{ old('memberId')}}" onblur="this.placeholder = 'Student id'" name="memberId">
                                     </div>
                                     @if($errors->has('memberId'))
                                         <small class="d-block text-danger">

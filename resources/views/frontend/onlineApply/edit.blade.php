@@ -134,8 +134,12 @@
           <div class="card border-0 shadow">
             <div class="form-container">
                 <h4 class="form-header">Please assist us with counseling by completing this form</h4>
+                {{-- <form class="form" method="post" enctype="multipart/form-data" action="{{route(currentUser().'.slider.update',encryptor('encrypt',$slider->id))}}">
+                    @csrf
+                    @method('PATCH')
+                    <input type="hidden" name="uptoken" value="{{encryptor('encrypt',$slider->id)}}"> --}}
 
-                <form class="form" method="post" enctype="multipart/form-data" action="{{route(currentUser().'.onlineapply.update',encryptor('encrypt',$apply->id))}}">
+                <form class="form" method="post" enctype="multipart/form-data" action="{{route(currentUser().'.onlineapply.update',encryptor('encrypt',$apply->id))}}" onsubmit="return confirmUpdate(event)">
                     @csrf
                     @method('patch')
                     <!-- Personal Details -->
@@ -176,7 +180,7 @@
                                     <th style="width: 50%;">Education Institute</th>
                                     <th style="width: 18%;">Subject/Group</th>
                                     <th style="width: 12%;">GPA/CGPA</th>
-                                    <th style="width: 12%;">Action</th>
+                                    {{-- <th style="width: 12%;">Action</th> --}}
                                 </tr>
                             </thead>
                             <tbody id="education_details">
@@ -199,7 +203,8 @@
                                     <td><input type="text" name="subject[]" placeholder="Subject" value="{{ old('Subject',$edu->subject)}}"></td>
                                     <td><input type="text" name="gpa[]" placeholder="GPA/CGPA" value="{{ old('gpa',$edu->result)}}"></td>
                                     <td>
-                                        <a class="text-danger" href="javascript:void()"
+
+                                        {{-- <a class="text-danger" href="javascript:void(0)"
                                         onclick="$('#form{{ $edu->id }}').submit()">
                                         <i class="bi bi-trash"></i>
                                     </a>
@@ -208,7 +213,18 @@
                                         method="post">
                                         @csrf
                                         @method('delete')
-                                    </form>
+                                    </form> --}}
+                                    {{-- <a class="text-danger" href="javascript:void(0)"
+                                        onclick="confirmDelete('{{ $edu->id }}')">
+                                        <i class="bi bi-trash"></i>
+                                    </a>
+
+                                    <form id="form{{ $edu->id }}" action="{{ route(currentUser() . '.onlineedu.destroy', encryptor('encrypt', $edu->id)) }}"
+                                        method="post">
+                                        @csrf
+                                        @method('delete')
+                                    </form> --}}
+
                                     </td>
                                 </tr>
                                 @endforeach
@@ -222,11 +238,11 @@
                         <h3>Professional Qualification</h3>
                         <div class="form-row">
                             <label for="years">Number of Years:</label>
-                            <input type="number" id="years" name="qualification_year" placeholder="e.g., 5">
+                            <input type="number" id="years" name="qualification_year" placeholder="e.g., 5" value="{{ old('qualification_year',$apply->qualification_year)}}">
                         </div>
                         <div class="form-row">
                             <label for="current-work">Current Works:</label>
-                            <input type="text" id="current-work" name="current_work" placeholder="Your current role">
+                            <input type="text" id="current-work" name="current_work" placeholder="Your current role" value="{{ old('current_work',$apply->current_work)}}">
                         </div>
                     </div>
 
@@ -259,12 +275,12 @@
                                 <th>OTHERS</th>
                             </tr>
                             <tr>
-                                <td><input type="text" id="ielts" name="ielts_score"></td>
-                                <td><input type="text" id="oietc_elt" name="oietc_elt_score"></td>
-                                <td><input type="text" id="duolingo" name="duolingo_score"></td>
-                                <td><input type="text" id="moi" name="moi_score"></td>
-                                <td><input type="text" id="pte" name="pte_score"></td>
-                                <td><input type="text" id="others" name="others_score"></td>
+                                <td><input type="text" id="ielts" name="ielts_score" value="{{ old('ielts_score',$apply->ielts_score)}}"></td>
+                                <td><input type="text" id="oietc_elt" name="oietc_elt_score" value="{{ old('oietc_elt_score',$apply->oietc_elt_score)}}"></td>
+                                <td><input type="text" id="duolingo" name="duolingo_score" value="{{ old('duolingo_score',$apply->duolingo_score)}}"></td>
+                                <td><input type="text" id="moi" name="moi_score" value="{{ old('moi_score',$apply->moi_score)}}"></td>
+                                <td><input type="text" id="pte" name="pte_score" value="{{ old('pte_score',$apply->pte_score)}}"></td>
+                                <td><input type="text" id="others" name="others_score" value="{{ old('others_score',$apply->others_score)}}"></td>
                             </tr>
                         </table>
                     </div>
@@ -343,4 +359,21 @@
             $(e).closest('tr').remove();
         }
     </script>
+    <script>
+        function confirmDelete(formId) {
+    if (confirm("Are you sure?")) {
+        document.getElementById('form' + formId).submit();
+    }
+}
+
+    </script>
+        <script>
+            function confirmUpdate(event) {
+                if (!confirm("Are you sure you want to Update?")) {
+                    event.preventDefault(); // Prevent form submission if "Cancel" is clicked
+                    return false;
+                }
+                return true; // Submit the form if "OK" is clicked
+            }
+        </script>
 @endpush

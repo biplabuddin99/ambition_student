@@ -151,7 +151,7 @@ class OnlineApplyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return 'ok';
+        // return 'ok';
         try{
             $online=OnlineApply::findOrFail(encryptor('decrypt',$id));
             $online->name=$request->name;
@@ -173,7 +173,7 @@ class OnlineApplyController extends Controller
             // $online->image=$this->resizeImage($request->Picture,'uploads/onlineStudent',true,1920,803,true);
             if($online->save()){
                 if($request->year){
-                    // $dl=EducationalQualification::where('onlineapply_id',$online->id)->delete();
+                    $dl=EducationalQualification::where('onlineapply_id',$online->id)->delete();
                     foreach($request->year as $i=>$year){
                         if($year){
                             $eduqu=new EducationalQualification;
