@@ -129,7 +129,7 @@ body {
   to {height: 85px;}
 }
 .shrink img {
-  height: 63px;
+  height: 81px;
   padding-top: 18px;
   animation: scale;
   animation-duration: 0.9s;
@@ -180,7 +180,7 @@ body {
 }
 .dropdown {
   position: relative;
-  
+
 }
 
  .dropdown::before{
@@ -422,7 +422,7 @@ body {
       position: absolute;
       cursor: pointer;
       transition: .6s;
-      
+
   }
 }
 
@@ -842,26 +842,26 @@ marquee p{
   font-size: 15px;
   margin-right: 40px;
   padding-top: 10px;
-  
+
 }
 .scicon .bi-linkedin{
   color: #0072b1;
   font-size: 15px;
   margin: 10px;
-  
+
 }
 .scicon .bi-twitter{
   color: #0072b1;
   font-size: 15px;
   margin-right: 5px;
   padding-top: 10px;
-  
+
 }
 .scicon .bi-facebook{
   color: #3b5998;
   font-size: 15px;
   margin: 10px;
-  
+
 }
 /* member */
 .memberdiv {
@@ -1006,7 +1006,7 @@ marquee p{
 .sideber-nav a:hover {
   font-weight: bolder !important;
   letter-spacing: 1px !important;
-  
+
 }
 .fontend-sidebar-nav li:hover{
   border-left: solid 3px var(--bluelight);
@@ -1160,7 +1160,7 @@ marquee p{
 }
 #support-number {
   font-size: 23px !important;
-  
+
 }
 /* footer */
 footer {
@@ -1214,7 +1214,7 @@ footer img {
 }
 .footer-nav h5 {
   font-weight: bold;
-  
+
 }
 .contact {
   margin-top: 30px;
@@ -1385,7 +1385,7 @@ footer img {
 .facilities-main .member-section {
   position: relative;
   overflow: hidden;
-  
+
 }
 figure{
   overflow: hidden;
@@ -1773,7 +1773,7 @@ figure{
 
 .advance-search-body legend {
   float: none !important;
-  width: 155px; 
+  width: 155px;
   padding: 0 !important;
   margin-bottom: 0.5rem;
 }
@@ -2021,12 +2021,12 @@ img.events-image {
   /* .megamenu-lg .row{
     text-align: center;
   } */
-  
+
   .news_event{
     margin-top: 1rem !important;
   }
 
-  
+
   /* <!-- Member Reg. --> */
   .member-reg .member-reg-backgroud {
     top: 0;
@@ -2259,7 +2259,7 @@ img.events-image {
   .dropdown::before {
     content: none !important;
   }
-  
+
   /* Display the dropdown menu when the dropdown is hovebluelight */
   .desktop-menu .dropdown:hover > .dropdown-menu {
     display: block !important;
