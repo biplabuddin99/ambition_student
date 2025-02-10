@@ -7,7 +7,7 @@
     <div class="container-fluid px-lg-5">
         <div class="row position-relative">
             <div class="col-lg-6">
-                <h3 class="mb-0 common-title-of-page">Executive Committee List</h3>
+                <h3 class="mb-0 common-title-of-page">Students List</h3>
             </div>
             <div class="col-lg-6">
                 <nav aria-label="breadcrumb">
@@ -62,7 +62,7 @@
                             <h4>Committee</h4>
                         </div>
                         <ul class="sideber-nav flex-culumn ps-3">
-                        @php 
+                        @php
                             $curl=request()->path();
                             $rows=DB::select("SELECT * from front_menus where parent_id = (select parent_id from front_menus where href='$curl') and status =1 order by rang");
                         @endphp
@@ -73,7 +73,7 @@
                             @forelse ($committeeSession as $cs)
                             <li class="nav-item my-2"><i class="bi bi-chevron-double-right"></i><a class="nav-link" href="{{route('exe-member-list',$cs->id)}}">{{$cs->session_name}}</a></li>
                             @empty
-                                
+
                             @endforelse
                         </ul>
 
@@ -105,7 +105,7 @@
                                     @forelse ($committeeSession as $cs)
                                     <li class="nav-item my-2"><i class="bi bi-chevron-double-right"></i><a class="nav-link" href="{{route('exe-member-list',$cs->id)}}">{{$cs->session_name}}</a></li>
                                     @empty
-                                        
+
                                     @endforelse
                             </ul>
                         </div>
@@ -149,10 +149,10 @@
                 @empty
                 <div class="col-12 text-center p-5">
                     <h3>No Data Found</h3>
-                </div> 
+                </div>
                 @endforelse
             </div>
-            
+
         </div>
         <div class="col-lg-9 px-2 d-sm-none">
             <div class="about-title text-center" id="grad">
@@ -178,7 +178,7 @@
                                     @forelse ($committeeSession as $cs)
                                     <li class="nav-item"><i class="bi bi-chevron-double-right"></i><a class="nav-link" href="{{route('exe-member-list',$cs->id)}}">{{$cs->session_name}}</a></li>
                                     @empty
-                                        
+
                                     @endforelse
                             </ul>
                         </div>
@@ -222,10 +222,10 @@
                 @empty
                 <div class="col-12 text-center p-5">
                     <h3>No Data Found</h3>
-                </div> 
+                </div>
                 @endforelse
             </div>
-            
+
         </div>
     </div>
 </div>

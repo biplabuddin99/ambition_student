@@ -7,7 +7,7 @@
     <div class="container-fluid px-5">
         <div class="row position-relative">
             <div class="col-lg-6">
-                <h3 class="mb-0 common-title-of-page">Member List</h3>
+                <h3 class="mb-0 common-title-of-page">Student's List</h3>
             </div>
             <div class="col-lg-6">
                 <nav aria-label="breadcrumb">
@@ -16,7 +16,7 @@
                             <a href="{{route('front')}}" class="breadcrumb-item router-link-active">Home</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="">member list</a>
+                            <a href="">Student's list</a>
                         </li>
                         <li class="breadcrumb-item">data</li>
                     </ol>
@@ -32,7 +32,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 text-center">
-                <h3 class="mb-2 common-title-of-page">Member List</h3>
+                <h3 class="mb-2 common-title-of-page">Student's List</h3>
             </div>
             <div class="col-lg-6">
                 <nav aria-label="breadcrumb">
@@ -41,7 +41,7 @@
                             <a href="{{route('front')}}" class="breadcrumb-item router-link-active">Home</a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a href="">member list</a>
+                            <a href="">Student's list</a>
                         </li>
                         <li class="breadcrumb-item">data</li>
                     </ol>
@@ -59,7 +59,7 @@
                         <span class="shape"></span>
                         <span class="shape2"></span>
                         <div class="card-header bg-white">
-                            <h4>Membership</h4>
+                            <h4>Students</h4>
                         </div>
                         {{-- <ul class="sideber-nav flex-culumn ps-3">
                             <li class="nav-item my-2"><i class="bi bi-chevron-double-right"></i><a class="nav-link" href="{{route('member.list')}}">Member List</a></li>
@@ -67,7 +67,7 @@
                             <li class="nav-item my-2"><i class="bi bi-chevron-double-right"></i><a class="nav-link" href="{{route('member_registration')}}">Become a member</a></li>
                         </ul> --}}
                         <ul class="sideber-nav fontend-sidebar-nav flex-culumn p-0">
-                        @php 
+                        @php
                             $curl=request()->path();
                             $rows=DB::select("SELECT * from front_menus where parent_id = (select parent_id from front_menus where href='$curl') and status =1 order by rang");
                         @endphp
@@ -86,7 +86,7 @@
                 <div class="col-lg-7">
                     <div class="member-search">
                         <div class="search-body">
-                            <h1>Member Search</h1>
+                            <h1>Student's Search</h1>
                             <form action="" method="get">
                                 <div class="searchBox">
                                     <input type="text" value="{{ request()->input('name', '') }}"  name="name" id="search" placeholder="Company Name">
@@ -206,7 +206,7 @@
                                     <label for="founding_member"><input type="radio" id="founding_member" name="member_type" value="9" {{ request('member_type') == '9' ? 'checked' : '' }}> Founding Member</label> --}}
                                 </div>
                                 <div class="form-group col-lg-5 p-1">
-                                    <label for="" class="mb-0">Membership ID</label>
+                                    <label for="" class="mb-0">Student ID</label>
                                     <input type="text" name="member_id" id="" class="form-control form-control-sm shadow-none">
                                 </div>
                                 <div class="form-group col-lg-5 p-1">
@@ -259,14 +259,14 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
         <div class="col-lg-9 px-2 d-sm-none">
             <div class="row justify-content-center">
                 <div class="col-lg-7">
                     <div class="member-search">
                         <div class="search-body">
-                            <h1>Member Search</h1>
+                            <h1>Student's Search</h1>
                             <form action="" method="get">
                                 <div class="searchBox">
                                     <input type="text" value="{{ request()->input('name', '') }}"  name="name" id="search" placeholder="Company Name">
@@ -387,7 +387,7 @@
                                     <label for="founding_member"><input type="radio" id="founding_member" name="member_type" value="9" {{ request('member_type') == '9' ? 'checked' : '' }}> Founding Member</label> --}}
                                 </div>
                                 <div class="form-group col-lg-5 p-1">
-                                    <label for="" class="mb-0">Membership ID</label>
+                                    <label for="" class="mb-0">Studentship ID</label>
                                     <input type="text" name="member_id" id="" class="form-control form-control-sm shadow-none">
                                 </div>
                                 <div class="form-group col-lg-5 p-1">
@@ -440,7 +440,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </div>

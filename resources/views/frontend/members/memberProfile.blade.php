@@ -6,7 +6,7 @@
             <div class="col-lg-12 col-sm-12 col-md-12 ">
                 <div class="card regi-form shadow-sm mb-3">
                     <div class="card-header">
-                        <h5>Membership Form</h5>
+                        <h5>Student Form</h5>
                     </div>
                     <div class="card-body">
                         <form method="post" enctype="multipart/form-data" action="{{route('profile.update')}}">
@@ -185,9 +185,9 @@
                                                     <input type="text" class="form-control" value="{{ old('tinNo',$member->e_tin_number)}}" name="tinNo">
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
-                                        
+
                                         <div class="col-lg-12 col-sm-12 col-md-12 d-flex justify-content-end">
                                             <button type="button" class="btn btn-sm btn-info text-white me-2">Save as Draft</button>
                                             <button type="button" class="btn btn-danger next-step">Next</button>
@@ -358,7 +358,7 @@
                                                                 </tr>
                                                             @endforeach
                                                             @endif
-                                                            
+
                                                             @for($i=$member->children->count();$i<5;$i++ )
                                                             <tr class="text-center">
                                                                 <td>{{$j=$i + 1}}.
@@ -375,9 +375,9 @@
                                                         </tbody>
                                                     </table>
                                                 </div>
-                                            </div> 
+                                            </div>
                                         </div>
-                                        
+
                                         <div class="col-lg-12 col-sm-12 col-md-12 text-end">
                                             <button type="button" class="btn btn-info text-white me-2">Save as Draft</button>
                                             <button type="button" class="btn btn-secondary prev-step m-2">Previous</button>
@@ -637,7 +637,7 @@
                                                                 </tr>
                                                             @endforeach
                                                             @endif
-                                                            
+
                                                             @for($i=$member->otherClub->count();$i<5;$i++ )
                                                             <tr class="text-center">
                                                                 <td>{{$j=$i + 1}}.
