@@ -19,19 +19,38 @@ class OnlineApplyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        // Paginate the OnlineApply records
-        $onlineapply = OnlineApply::paginate(10);
+        // // Paginate the OnlineApply records
+        // $onlineapply = OnlineApply::paginate(25);
 
-        // Fetch all countries
-        $countryperf = CountryPreference::select('id', 'name')->get();
+        // // Fetch all countries
+        // $countryperf = CountryPreference::select('id', 'name')->get();
 
-        // Prepare selectedCountry for each record
-        $onlineapply->each(function ($apply) {
-            $apply->selectedCountry = explode(',', $apply->country_preference); // Convert to an array
-        });
+        // // Prepare selectedCountry for each record
+        // $onlineapply->each(function ($apply) {
+        //     $apply->selectedCountry = explode(',', $apply->country_preference); // Convert to an array
+        // });
+        $onlineapply=OnlineApply::orderBy('id');
+        // $member=OnlineApply::where('status',2)->get();
+        // $onlineapply = OnlineApply::paginate(25);
 
+        if($request->name)
+            $onlineapply=$onlineapply->where('name','like','%'.$request->name.'%');
+        if($request->phone)
+            $onlineapply=$onlineapply->where('phone','like','%'.$request->phone.'%');
+        if($request->email)
+            $onlineapply=$onlineapply->where('email',$request->email);
+
+        $onlineapply=$onlineapply->paginate(25);
+
+                // Fetch all countries
+                $countryperf = CountryPreference::select('id', 'name')->get();
+
+                // Prepare selectedCountry for each record
+                $onlineapply->each(function ($apply) {
+                    $apply->selectedCountry = explode(',', $apply->country_preference); // Convert to an array
+                });
         return view('frontend.onlineApply.index', compact('onlineapply', 'countryperf'));
     }
 

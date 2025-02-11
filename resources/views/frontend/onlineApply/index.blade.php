@@ -3,7 +3,6 @@
 @section('pageSubTitle', trans('List'))
 
 @section('content')
-
     <!-- Bordered table start -->
     <section class="section">
         <div class="row" id="table-bordered">
@@ -16,6 +15,33 @@
                         <a class="float-end" href="{{ route(currentUser() . '.onlineapply.create') }}"
                             style="font-size:1.7rem"><i class="bi bi-plus-square-fill"></i></a>
                     </div>
+                    <form action="" method="get">
+                        <div class="row py-2 d-flex">
+                            <div class="input-group input-group-sm d-flex">
+                                <div class="col-2 pe-1">
+                                    <input type="text" class="form-control" name="name" value="{{request('name')}}" placeholder="name">
+                                </div>
+                                <div class="col-2 pe-1">
+                                    <input type="text" class="form-control" name="phone" value="{{request('phone')}}" placeholder="Contact number">
+                                </div>
+                                <div class="col-2 pe-1">
+                                    <input type="text" class="form-control" name="email" value="{{request('email')}}" placeholder="Email">
+                                </div>
+                                <div class="col-5 pe-1">
+                                    <div class="d-flex">
+                                        <div class="input-group-append" style="margin-left: 6px;">
+                                            <button type="submit" class="btn btn-info">
+                                                <i class="bi bi-search"></i>
+                                            </button>
+                                        </div>
+                                        <div class="input-group-append" style="margin-left: -2px;">
+                                            <a class="btn btn-warning ms-2" href="{{route(currentUser().'.onlineapply.index')}}" title="Clear"><i class="bi bi-arrow-clockwise"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                     <!-- table bordered -->
                     <div class="table-responsive">
                         <table class="table table-bordered mb-0">
