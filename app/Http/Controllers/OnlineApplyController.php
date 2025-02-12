@@ -21,7 +21,7 @@ class OnlineApplyController extends Controller
      */
     public function index(Request $request)
     {
-        $onlineapply=OnlineApply::orderBy('id');
+        $onlineapply=OnlineApply::orderBy('id','desc');
         // $member=OnlineApply::where('status',2)->get();
         if($request->name)
             $onlineapply=$onlineapply->where('name','like','%'.$request->name.'%');
