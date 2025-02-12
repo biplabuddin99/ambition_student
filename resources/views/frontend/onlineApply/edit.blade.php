@@ -1,210 +1,231 @@
 @extends('frontend.app')
 @section('content')
-@php $setting=\App\Models\setting::first(); @endphp
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-        padding: 20px;
-        background-color: #f9f9f9;
-    }
+    @php $setting=\App\Models\setting::first(); @endphp
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
 
-    .form-container {
-        max-width: 800px;
-        margin: auto;
-        background: #fff;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+        .form-container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
-    .form-header {
-        text-align: center;
-        margin-bottom: 20px;
-    }
+        .form-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-    label {
-        display: block;
-        margin-top: 5px;
-        font-weight: bold;
-    }
+        label {
+            display: block;
+            margin-top: 5px;
+            font-weight: bold;
+        }
 
-    input[type="text"], input[type="email"], input[type="number"], .checkbox-group {
-        width: 100%;
-        padding: 8px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        .checkbox-group {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
 
-    .checkbox-group {
-        display: flex;
-        flex-wrap: wrap;
-    }
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+        }
 
-    .checkbox-group label {
-        margin-right: 10px;
-        font-weight: normal;
-    }
+        .checkbox-group label {
+            margin-right: 10px;
+            font-weight: normal;
+        }
 
-    .section {
-        margin-bottom: 20px;
-    }
+        .section {
+            margin-bottom: 20px;
+        }
 
-    .btn {
-        display: block;
-        width: 100%;
-        padding: 10px;
-        background-color: #007BFF;
-        color: #fff;
-        text-align: center;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-    .btn:hover {
-        background-color: #34c0eb;
-    }
+        .btn:hover {
+            background-color: #34c0eb;
+        }
 
-    .section-flex {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-    }
+        .section-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
 
-    .form-details {
-        flex: 1;
-        margin-right: 20px;
-    }
+        .form-details {
+            flex: 1;
+            margin-right: 20px;
+        }
 
-    .form-details input {
-        width: 70% !important;
-    }
+        .form-details input {
+            width: 70% !important;
+        }
 
-    .logo {
-        flex: 0 0 auto;
-    }
+        .logo {
+            flex: 0 0 auto;
+        }
 
-    .logo img {
-        max-width: 150px;
-    }
-    .form-row {
-        display: flex;
-        align-items: center; /* Align label and input vertically */
-        margin-bottom: 10px; /* Add spacing between rows */
-    }
+        .logo img {
+            max-width: 150px;
+        }
 
-    .form-row label {
-        width: 100px; /* Fixed width for labels */
-        margin-right: 10px; /* Spacing between label and input */
-    }
+        .form-row {
+            display: flex;
+            align-items: center;
+            /* Align label and input vertically */
+            margin-bottom: 10px;
+            /* Add spacing between rows */
+        }
 
-    .form-row input {
-        flex: 1; /* Input takes the remaining space */
-        padding: 5px;
-    }
+        .form-row label {
+            width: 100px;
+            /* Fixed width for labels */
+            margin-right: 10px;
+            /* Spacing between label and input */
+        }
 
-    .language-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: center;
-    margin-top: 10px;
-}
+        .form-row input {
+            flex: 1;
+            /* Input takes the remaining space */
+            padding: 5px;
+        }
 
-.language-table th,
-.language-table td {
-    border: 1px solid #000;
-    padding: 5px;
-}
+        .language-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            margin-top: 10px;
+        }
 
-.language-table input {
-    width: 90%;
-    padding: 5px;
-    box-sizing: border-box;
-    border: 1px solid red;
-}
+        .language-table th,
+        .language-table td {
+            border: 1px solid #000;
+            padding: 5px;
+        }
 
-</style>
-<!-- // Basic multiple Column Form section start -->
-<section class="container py-4">
-    <div class="row merber-reg-card">
-        <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
-          <div class="card border-0 shadow">
-            <div class="form-container">
-                <h4 class="form-header">Please assist us with counseling by completing this form</h4>
-                {{-- <form class="form" method="post" enctype="multipart/form-data" action="{{route(currentUser().'.slider.update',encryptor('encrypt',$slider->id))}}">
+        .language-table input {
+            width: 90%;
+            padding: 5px;
+            box-sizing: border-box;
+            border: 1px solid red;
+        }
+    </style>
+    <!-- // Basic multiple Column Form section start -->
+    <section class="container py-4">
+        <div class="row merber-reg-card">
+            <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+                <div class="card border-0 shadow">
+                    <div class="form-container">
+                        <h4 class="form-header">Please assist us with counseling by completing this form</h4>
+                        {{-- <form class="form" method="post" enctype="multipart/form-data" action="{{route(currentUser().'.slider.update',encryptor('encrypt',$slider->id))}}">
                     @csrf
                     @method('PATCH')
                     <input type="hidden" name="uptoken" value="{{encryptor('encrypt',$slider->id)}}"> --}}
 
-                <form class="form" method="post" enctype="multipart/form-data" action="{{route(currentUser().'.onlineapply.update',encryptor('encrypt',$apply->id))}}" onsubmit="return confirmUpdate(event)">
-                    @csrf
-                    @method('patch')
-                    <!-- Personal Details -->
-                    <div class="section section-flex">
-                        <div class="form-details">
-                            <h3>Personal Details</h3>
-                            <div class="form-row">
-                                <label for="name">Name:</label>
-                                <input type="text" id="name" name="name" placeholder="Enter your name" value="{{ old('name',$apply->name)}}">
+                        <form class="form" method="post" enctype="multipart/form-data"
+                            action="{{ route(currentUser() . '.onlineapply.update', encryptor('encrypt', $apply->id)) }}"
+                            onsubmit="return confirmUpdate(event)">
+                            @csrf
+                            @method('patch')
+                            <!-- Personal Details -->
+                            <div class="section section-flex">
+                                <div class="form-details">
+                                    <h3>Personal Details</h3>
+                                    <div class="form-row">
+                                        <label for="name">Name:</label>
+                                        <input type="text" id="name" name="name" placeholder="Enter your name"
+                                            value="{{ old('name', $apply->name) }}">
+                                    </div>
+
+                                    <div class="form-row">
+                                        <label for="phone">Phone:</label>
+                                        <input type="text" id="phone" name="phone"
+                                            placeholder="Enter your phone number" value="{{ old('phone', $apply->phone) }}">
+                                    </div>
+
+                                    <div class="form-row">
+                                        <label for="email">Email:</label>
+                                        <input type="email" id="email" name="email" placeholder="Enter your email"
+                                            value="{{ old('email', $apply->email) }}">
+                                    </div>
+                                </div>
+                                <div class="logo">
+                                    <img src="{{ asset('uploads/settings/header_logo/' . $setting?->header_logo) }}"
+                                        alt="Ambition Logo">
+                                </div>
                             </div>
 
-                            <div class="form-row">
-                                <label for="phone">Phone:</label>
-                                <input type="text" id="phone" name="phone" placeholder="Enter your phone number" value="{{ old('phone',$apply->phone)}}">
-                            </div>
+                            <!-- Educational Qualification -->
+                            <div class="section">
+                                <div class="d-flex">
+                                    <h3>Educational Qualification</h3>
+                                    <span onClick='addEdu();' class="text-secondary mt-3">(if have more education, click<i
+                                            class="bi bi-plus-square-fill"></i> button)</span>
+                                </div>
+                                <table border="1" width="100%" style="border-collapse: collapse;">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 10%;">Degree</th>
+                                            <th style="width: 10%;">Year</th>
+                                            <th style="width: 50%;">Education Institute</th>
+                                            <th style="width: 18%;">Subject/Group</th>
+                                            <th style="width: 12%;">GPA/CGPA</th>
+                                            {{-- <th style="width: 12%;">Action</th> --}}
+                                        </tr>
+                                    </thead>
+                                    <tbody id="education_details">
+                                        @if ($apply->education)
+                                            @foreach ($apply->education as $edu)
+                                                <tr>
+                                                    <td><input type="text" name="degree[]" placeholder="SSC"
+                                                            value="{{ old('degree', $edu->degree) }}"></td>
+                                                    <td>
+                                                        {{-- <input type="text" name="year1" placeholder="Year"> --}}
+                                                        <select id="year" name="year[]" class="form-control ">
+                                                            {{ $last = date('Y') - 120 }}
+                                                            {{ $now = date('Y') }}
+                                                            <option value="">Select</option>
+                                                            @for ($i = $now; $i >= $last; $i--)
+                                                                <option value="{{ $i }}"
+                                                                    {{ $edu->year == $i ? 'selected' : '' }}>
+                                                                    {{ $i }}</option>
+                                                            @endfor
+                                                        </select>
+                                                    </td>
+                                                    <td><input type="text" name="institute[]" placeholder="Institute"
+                                                            value="{{ old('Institute', $edu->institute) }}"></td>
+                                                    <td><input type="text" name="subject[]" placeholder="Subject"
+                                                            value="{{ old('Subject', $edu->subject) }}"></td>
+                                                    <td><input type="text" name="gpa[]" placeholder="GPA/CGPA"
+                                                            value="{{ old('gpa', $edu->result) }}"></td>
+                                                    <td>
 
-                            <div class="form-row">
-                                <label for="email">Email:</label>
-                                <input type="email" id="email" name="email" placeholder="Enter your email" value="{{ old('email',$apply->email)}}">
-                            </div>
-                        </div>
-                        <div class="logo">
-                            <img src="{{asset('uploads/settings/header_logo/'.$setting?->header_logo)}}" alt="Ambition Logo">
-                        </div>
-                    </div>
-
-                    <!-- Educational Qualification -->
-                    <div class="section">
-                        <div class="d-flex">
-                            <h3>Educational Qualification</h3>
-                            <span onClick='addEdu();' class="text-secondary mt-3">(if have more education, click<i class="bi bi-plus-square-fill"></i> button)</span>
-                        </div>
-                        <table border="1" width="100%" style="border-collapse: collapse;">
-                            <thead>
-                                <tr>
-                                    <th style="width: 10%;">Degree</th>
-                                    <th style="width: 10%;">Year</th>
-                                    <th style="width: 50%;">Education Institute</th>
-                                    <th style="width: 18%;">Subject/Group</th>
-                                    <th style="width: 12%;">GPA/CGPA</th>
-                                    {{-- <th style="width: 12%;">Action</th> --}}
-                                </tr>
-                            </thead>
-                            <tbody id="education_details">
-                                @if ($apply->education)
-                                @foreach ($apply->education as $edu)
-                                <tr>
-                                    <td><input type="text" name="degree[]" placeholder="SSC" value="{{ old('degree',$edu->degree)}}"></td>
-                                    <td>
-                                        {{-- <input type="text" name="year1" placeholder="Year"> --}}
-                                        <select id="year" name="year[]" class="form-control ">
-                                            {{ $last= date('Y')-120 }}
-                                            {{ $now = date('Y') }}
-                                            <option value="">Select</option>
-                                            @for ($i = $now; $i >= $last; $i--)
-                                                <option value="{{ $i }}" {{ $edu->year == $i ? 'selected' : '' }}>{{ $i }}</option>
-                                            @endfor
-                                        </select>
-                                    </td>
-                                    <td><input type="text" name="institute[]" placeholder="Institute" value="{{ old('Institute',$edu->institute)}}"></td>
-                                    <td><input type="text" name="subject[]" placeholder="Subject" value="{{ old('Subject',$edu->subject)}}"></td>
-                                    <td><input type="text" name="gpa[]" placeholder="GPA/CGPA" value="{{ old('gpa',$edu->result)}}"></td>
-                                    <td>
-
-                                        {{-- <a class="text-danger" href="javascript:void(0)"
+                                                        {{-- <a class="text-danger" href="javascript:void(0)"
                                         onclick="$('#form{{ $edu->id }}').submit()">
                                         <i class="bi bi-trash"></i>
                                     </a>
@@ -214,7 +235,7 @@
                                         @csrf
                                         @method('delete')
                                     </form> --}}
-                                    {{-- <a class="text-danger" href="javascript:void(0)"
+                                                        {{-- <a class="text-danger" href="javascript:void(0)"
                                         onclick="confirmDelete('{{ $edu->id }}')">
                                         <i class="bi bi-trash"></i>
                                     </a>
@@ -225,28 +246,31 @@
                                         @method('delete')
                                     </form> --}}
 
-                                    </td>
-                                </tr>
-                                @endforeach
-                                @endif
-                            </tbody>
-                        </table>
-                    </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        @endif
+                                    </tbody>
+                                </table>
+                            </div>
 
-                    <!-- Professional Qualification -->
-                    <div class="section">
-                        <h3>Professional Qualification</h3>
-                        <div class="form-row">
-                            <label for="years">Number of Years:</label>
-                            <input type="number" id="years" name="qualification_year" placeholder="e.g., 5" value="{{ old('qualification_year',$apply->qualification_year)}}">
-                        </div>
-                        <div class="form-row">
-                            <label for="current-work">Current Works:</label>
-                            <input type="text" id="current-work" name="current_work" placeholder="Your current role" value="{{ old('current_work',$apply->current_work)}}">
-                        </div>
-                    </div>
+                            <!-- Professional Qualification -->
+                            <div class="section">
+                                <h3>Professional Qualification</h3>
+                                <div class="form-row">
+                                    <label for="years">Number of Years:</label>
+                                    <input type="number" id="years" name="qualification_year" placeholder="e.g., 5"
+                                        value="{{ old('qualification_year', $apply->qualification_year) }}">
+                                </div>
+                                <div class="form-row">
+                                    <label for="current-work">Current Works:</label>
+                                    <input type="text" id="current-work" name="current_work"
+                                        placeholder="Your current role"
+                                        value="{{ old('current_work', $apply->current_work) }}">
+                                </div>
+                            </div>
 
-                    {{-- <div class="section">
+                            {{-- <div class="section">
                         <h3>Language Proficiency</h3>
                         <div class="form-row">
                             <label for="ielts">IELTS Score:</label>
@@ -262,85 +286,92 @@
                         </div>
                     </div> --}}
 
-                    <!-- Language Proficiency -->
-                    <div class="section">
-                        <h3>Language Proficiency</h3>
-                        <table class="language-table">
-                            <tr>
-                                <th>IELTS</th>
-                                <th>OIETC/ELLT</th>
-                                <th>Duolingo</th>
-                                <th>MOI</th>
-                                <th>PTE</th>
-                                <th>OTHERS</th>
-                            </tr>
-                            <tr>
-                                <td><input type="text" id="ielts" name="ielts_score" value="{{ old('ielts_score',$apply->ielts_score)}}"></td>
-                                <td><input type="text" id="oietc_elt" name="oietc_elt_score" value="{{ old('oietc_elt_score',$apply->oietc_elt_score)}}"></td>
-                                <td><input type="text" id="duolingo" name="duolingo_score" value="{{ old('duolingo_score',$apply->duolingo_score)}}"></td>
-                                <td><input type="text" id="moi" name="moi_score" value="{{ old('moi_score',$apply->moi_score)}}"></td>
-                                <td><input type="text" id="pte" name="pte_score" value="{{ old('pte_score',$apply->pte_score)}}"></td>
-                                <td><input type="text" id="others" name="others_score" value="{{ old('others_score',$apply->others_score)}}"></td>
-                            </tr>
-                        </table>
-                    </div>
+                            <!-- Language Proficiency -->
+                            <div class="section">
+                                <h3>Language Proficiency</h3>
+                                <table class="language-table">
+                                    <tr>
+                                        <th>IELTS</th>
+                                        <th>OIETC/ELLT</th>
+                                        <th>Duolingo</th>
+                                        <th>MOI</th>
+                                        <th>PTE</th>
+                                        <th>OTHERS</th>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" id="ielts" name="ielts_score"
+                                                value="{{ old('ielts_score', $apply->ielts_score) }}"></td>
+                                        <td><input type="text" id="oietc_elt" name="oietc_elt_score"
+                                                value="{{ old('oietc_elt_score', $apply->oietc_elt_score) }}"></td>
+                                        <td><input type="text" id="duolingo" name="duolingo_score"
+                                                value="{{ old('duolingo_score', $apply->duolingo_score) }}"></td>
+                                        <td><input type="text" id="moi" name="moi_score"
+                                                value="{{ old('moi_score', $apply->moi_score) }}"></td>
+                                        <td><input type="text" id="pte" name="pte_score"
+                                                value="{{ old('pte_score', $apply->pte_score) }}"></td>
+                                        <td><input type="text" id="others" name="others_score"
+                                                value="{{ old('others_score', $apply->others_score) }}"></td>
+                                    </tr>
+                                </table>
+                            </div>
 
-                    <!-- Field of Study -->
-                    <div class="section">
-                        <h3>Field of Study</h3>
-                        <div class="checkbox-group">
-                            @foreach ($fieldstudy as $field)
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="field_of_study[]"
-                                    value="{{ $field->id }}"
-                                    {{ in_array($field->id, $selectedFields) ? 'checked' : '' }}
-                                >
-                                {{ $field->name }}
-                            </label>
-                            {{-- <label><input type="checkbox" name="country_preference[]" value="{{ $country->id }}"> {{ $country->name }}</label> --}}
-                            @endforeach
-                        </div>
-                    </div>
-                    <!-- Country Preference -->
-                    <div class="section">
-                        <h3>Country Preference</h3>
-                        <div class="checkbox-group">
-                            @foreach ($countryperf as $country)
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    name="country_preference[]"
-                                    value="{{ $country->id }}"
-                                    {{ in_array($country->id, $selectedCountry) ? 'checked' : '' }}
-                                >
-                                {{ $country->name }}
-                            </label>
-                            {{-- <label><input type="checkbox" name="country_preference[]" value="{{ $country->id }}"> {{ $country->name }}</label> --}}
-                            @endforeach
-                        </div>
-                    </div>
+                            <!-- Field of Study -->
+                            <div class="section">
+                                <h3>Field of Study</h3>
+                                <div class="checkbox-group">
+                                    @foreach ($fieldstudy as $field)
+                                        <label>
+                                            <input type="checkbox" name="field_of_study[]" value="{{ $field->id }}"
+                                                {{ in_array($field->id, $selectedFields) ? 'checked' : '' }}>
+                                            {{ $field->name }}
+                                        </label>
+                                        {{-- <label><input type="checkbox" name="country_preference[]" value="{{ $country->id }}"> {{ $country->name }}</label> --}}
+                                    @endforeach
+                                </div>
+                            </div>
+                            <!-- Country Preference -->
+                            <div class="section">
+                                <h3>Country Preference</h3>
+                                <div class="checkbox-group">
+                                    @foreach ($countryperf as $country)
+                                        <label>
+                                            <input type="checkbox" name="country_preference[]"
+                                                value="{{ $country->id }}"
+                                                {{ in_array($country->id, $selectedCountry) ? 'checked' : '' }}>
+                                            {{ $country->name }}
+                                        </label>
+                                        {{-- <label><input type="checkbox" name="country_preference[]" value="{{ $country->id }}"> {{ $country->name }}</label> --}}
+                                    @endforeach
+                                </div>
+                            </div>
 
-                    <!-- Submit Button -->
-                    <button type="submit" class="btn">Submit</button>
-                </form>
+                            <!-- Remark Preference -->
+                            <div class="section">
+                                <h6>Remark</h6>
+                                <div class="">
+                                    <textarea class="w-100" name="remark" id="" cols="30" rows="3">{{ old('others_score', $apply->others_score) }}</textarea>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn">Submit</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-          </div>
-      </div>
-  </div>
-</section>
-<!-- // Basic multiple Column Form section end -->
-    @endsection
-    @push("scripts")
+        </div>
+    </section>
+    <!-- // Basic multiple Column Form section end -->
+@endsection
+@push('scripts')
     <script>
-        function addEdu(){
-        var row=`
+        function addEdu() {
+            var row = `
             <tr>
                 <td><input type="text" name="degree[]" placeholder="Degree"></td>
                 <td>
                     <select id="year" name="year[]" class="form-control ">
-                        {{ $last= date('Y')-120 }}
+                        {{ $last = date('Y') - 120 }}
                         {{ $now = date('Y') }}
 
                         @for ($i = $now; $i >= $last; $i--)
@@ -355,25 +386,24 @@
             $('#education_details').append(row);
         }
 
-        function removeEdu(e){
+        function removeEdu(e) {
             $(e).closest('tr').remove();
         }
     </script>
     <script>
         function confirmDelete(formId) {
-    if (confirm("Are you sure?")) {
-        document.getElementById('form' + formId).submit();
-    }
-}
-
-    </script>
-        <script>
-            function confirmUpdate(event) {
-                if (!confirm("Are you sure you want to Update?")) {
-                    event.preventDefault(); // Prevent form submission if "Cancel" is clicked
-                    return false;
-                }
-                return true; // Submit the form if "OK" is clicked
+            if (confirm("Are you sure?")) {
+                document.getElementById('form' + formId).submit();
             }
-        </script>
+        }
+    </script>
+    <script>
+        function confirmUpdate(event) {
+            if (!confirm("Are you sure you want to Update?")) {
+                event.preventDefault(); // Prevent form submission if "Cancel" is clicked
+                return false;
+            }
+            return true; // Submit the form if "OK" is clicked
+        }
+    </script>
 @endpush

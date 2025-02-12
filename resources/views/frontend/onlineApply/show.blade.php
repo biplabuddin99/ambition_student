@@ -125,20 +125,35 @@
             box-sizing: border-box;
             border: 1px solid red;
         }
-        .btnprint {
-    padding: 10px 20px;           /* Add padding for buttons */
-    font-size: 16px;              /* Set font size */
-    border: none;                 /* Remove border */
-    background-color: #007bff;    /* Button background color */
-    color: white;                 /* Button text color */
-    cursor: pointer;              /* Pointer cursor on hover */
-    border-radius: 5px;           /* Rounded corners */
-    transition: background-color 0.3s ease; /* Add hover transition */
-}
 
-.btnprint:hover {
-    background-color: #0056b3;    /* Change color on hover */
-}
+        .btnprint {
+            padding: 10px 20px;
+            /* Add padding for buttons */
+            font-size: 16px;
+            /* Set font size */
+            border: none;
+            /* Remove border */
+            background-color: #007bff;
+            /* Button background color */
+            color: white;
+            /* Button text color */
+            cursor: pointer;
+            /* Pointer cursor on hover */
+            border-radius: 5px;
+            /* Rounded corners */
+            transition: background-color 0.3s ease;
+            /* Add hover transition */
+        }
+
+        .btnprint:hover {
+            background-color: #0056b3;
+            /* Change color on hover */
+        }
+
+        .remark {
+            border: 1px solid #090909;
+            padding: 5px;
+        }
     </style>
     <script>
         function print_() {
@@ -158,7 +173,8 @@
                 <h3>Please assist us with counseling by completing this form</h3>
             </div>
             <div>
-                <img src="{{ asset('uploads/settings/header_logo/' . $setting?->header_logo) }}" alt="Ambition Logo">
+                <img class="align-self-center p-3" src="{{asset('img/ambition_logo.png')}}" alt="Ambition Logo" >
+                {{-- <img src="{{ asset('uploads/settings/header_logo/' . $setting?->header_logo) }}" alt="Ambition Logo"> --}}
             </div>
         </div>
 
@@ -274,16 +290,12 @@
             <h3>Field of Study</h3>
             <div class="checkbox-group">
                 @foreach ($fieldstudy as $field)
-                <label>
-                    <input
-                        type="checkbox"
-                        name="field_of_study[]"
-                        value="{{ $field->id }}"
-                        {{ in_array($field->id, $selectedFields) ? 'checked' : '' }}
-                    >
-                    {{ $field->name }}
-                </label>
-                {{-- <label><input type="checkbox" name="country_preference[]" value="{{ $country->id }}"> {{ $country->name }}</label> --}}
+                    <label>
+                        <input type="checkbox" name="field_of_study[]" value="{{ $field->id }}"
+                            {{ in_array($field->id, $selectedFields) ? 'checked' : '' }}>
+                        {{ $field->name }}
+                    </label>
+                    {{-- <label><input type="checkbox" name="country_preference[]" value="{{ $country->id }}"> {{ $country->name }}</label> --}}
                 @endforeach
                 {{-- <label><input type="checkbox" name="country_preference[]" value="UK"> UK</label>
                 <label><input type="checkbox" name="country_preference[]" value="USA"> USA</label>
@@ -299,24 +311,19 @@
             <h3>Country Preference</h3>
             <div class="checkbox-group">
                 @foreach ($countryperf as $country)
-                <label>
-                    <input
-                        type="checkbox"
-                        name="field_of_study[]"
-                        value="{{ $country->id }}"
-                        {{ in_array($country->id, $selectedCountry) ? 'checked' : '' }}
-                    >
-                    {{ $country->name }}
-                </label>
-                {{-- <label><input type="checkbox" name="country_preference[]" value="{{ $country->id }}"> {{ $country->name }}</label> --}}
+                    <label>
+                        <input type="checkbox" name="field_of_study[]" value="{{ $country->id }}"
+                            {{ in_array($country->id, $selectedCountry) ? 'checked' : '' }}>
+                        {{ $country->name }}
+                    </label>
+                    {{-- <label><input type="checkbox" name="country_preference[]" value="{{ $country->id }}"> {{ $country->name }}</label> --}}
                 @endforeach
-                {{-- <label><input type="checkbox" name="country_preference[]" value="UK"> UK</label>
-                <label><input type="checkbox" name="country_preference[]" value="USA"> USA</label>
-                <label><input type="checkbox" name="country_preference[]" value="Canada"> Canada</label>
-                <label><input type="checkbox" name="country_preference[]" value="Australia"> Australia</label>
-                <label><input type="checkbox" name="country_preference[]" value="Denmark"> Denmark</label>
-                <label><input type="checkbox" name="country_preference[]" value="Finland"> Finland</label>
-                <label><input type="checkbox" name="country_preference[]" value="Ireland"> Ireland</label> --}}
+            </div>
+        </div>
+        <div class="section">
+            <label for="Remark">Remark:</label>
+            <div class="checkbox-group remark">
+                {{ $onlineapply->remark }}
             </div>
         </div>
     </div>

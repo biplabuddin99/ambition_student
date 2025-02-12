@@ -21,7 +21,6 @@ class OnlineApplyController extends Controller
      */
     public function index(Request $request)
     {
-
         $onlineapply=OnlineApply::orderBy('id');
         // $member=OnlineApply::where('status',2)->get();
         if($request->name)
@@ -32,12 +31,12 @@ class OnlineApplyController extends Controller
             $onlineapply=$onlineapply->where('email',$request->email);
 
         $onlineapply=$onlineapply->paginate(25);
-                // Fetch all countries
-                $countryperf = CountryPreference::select('id', 'name')->get();
-                // Prepare selectedCountry for each record
-                $onlineapply->each(function ($apply) {
-                    $apply->selectedCountry = explode(',', $apply->country_preference); // Convert to an array
-                });
+            // Fetch all countries
+            $countryperf = CountryPreference::select('id', 'name')->get();
+            // Prepare selectedCountry for each record
+            $onlineapply->each(function ($apply) {
+                $apply->selectedCountry = explode(',', $apply->country_preference); // Convert to an array
+            });
         return view('frontend.onlineApply.index', compact('onlineapply', 'countryperf'));
     }
 
@@ -82,6 +81,7 @@ class OnlineApplyController extends Controller
             // $online->country_preference=$request->country_preference;
             // if($request->has('Picture'))
             // $online->image=$this->resizeImage($request->Picture,'uploads/onlineStudent',true,1920,803,true);
+            $online->remark=$request->remark;
             $online->status=0;
             if($online->save()){
                 if($request->year){
@@ -171,7 +171,8 @@ class OnlineApplyController extends Controller
             $online->duolingo_score=$request->duolingo_score;
             $online->moi_score=$request->moi_score;
             $online->pte_score=$request->pte_score;
-            $online->status=0;
+            $online->remark=$request->remark;
+            // $online->status=0;
             $online->others_score=$request->others_score;
             $online->field_of_study=$request->field_of_study?implode(',',$request->field_of_study):'';
             $online->country_preference=$request->country_preference?implode(',',$request->country_preference):'';

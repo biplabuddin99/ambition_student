@@ -157,7 +157,8 @@
                             </div>
                         </div>
                         <div class="logo">
-                            <img src="{{asset('uploads/settings/header_logo/'.$setting?->header_logo)}}" alt="Ambition Logo">
+                            <img class="align-self-center p-3" src="{{asset('img/ambition_logo.png')}}" alt="Ambition Logo" >
+                            {{-- <img src="{{asset('uploads/settings/header_logo/'.$setting?->header_logo)}}" alt="Ambition Logo"> --}}
                         </div>
                     </div>
 
@@ -324,13 +325,13 @@
                             @foreach ($countryperf as $country)
                             <label><input type="checkbox" name="country_preference[]" value="{{ $country->id }}"> {{ $country->name }}</label>
                             @endforeach
-                            {{-- <label><input type="checkbox" name="country_preference[]" value="UK"> UK</label>
-                            <label><input type="checkbox" name="country_preference[]" value="USA"> USA</label>
-                            <label><input type="checkbox" name="country_preference[]" value="Canada"> Canada</label>
-                            <label><input type="checkbox" name="country_preference[]" value="Australia"> Australia</label>
-                            <label><input type="checkbox" name="country_preference[]" value="Denmark"> Denmark</label>
-                            <label><input type="checkbox" name="country_preference[]" value="Finland"> Finland</label>
-                            <label><input type="checkbox" name="country_preference[]" value="Ireland"> Ireland</label> --}}
+                        </div>
+                    </div>
+                    <!-- Remark Preference -->
+                    <div class="section">
+                        <h6>Remark</h6>
+                        <div class="">
+                            <textarea class="w-100" name="remark" id="" cols="30" rows="3"></textarea>
                         </div>
                     </div>
 

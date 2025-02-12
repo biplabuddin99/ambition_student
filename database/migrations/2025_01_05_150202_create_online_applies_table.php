@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('others_score')->nullable();
             $table->string('field_of_study')->nullable();
             $table->string('country_preference')->nullable();
+            $table->text('remark')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();
         });
