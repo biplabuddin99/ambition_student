@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Mail;
 use Exception;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
+use App\Models\OnlineApply;
 
 class OurMemberController extends Controller
 {
@@ -60,19 +61,63 @@ class OurMemberController extends Controller
         return view('ourmember.approveMember',compact('ourmember','member','mType'));
     }
 
-    public function smsToMember()
+    // public function smsToMember()
+    // {
+    //     $ourmember=OurMember::select('id','given_name','surname','membership_no','membership_applied','cell_number')->where('status',2)->with('membership_type')->get();
+    //     return view('ourmember.smsMember',compact('ourmember'));
+    // }
+    public function mailToStudent()
     {
-        $ourmember=OurMember::select('id','given_name','surname','membership_no','membership_applied','cell_number')->where('status',2)->with('membership_type')->get();
-        return view('ourmember.smsMember',compact('ourmember'));
+        $onlineapply=OnlineApply::select('id','name','phone','email')->where('status',0)->get();
+        return view('frontend.onlineApply.studentMails.mailStudent',compact('onlineapply'));
     }
 
-    public function sendSmsToMember(Request $request){
+//     public function sendSmsToMember(Request $request){
+//         try {
+//             $success=0;
+//             $error=0;
+//            if($request->member_id){
+//                foreach ($request->member_id as $memberId) {
+//                    $member = OurMember::where('id', $memberId)->first();
+//                    $smsClass = new sslSms();
+//                    $phone = $member->cell_number;
+//                    $rand = uniqid() . rand(1000, 9999);
+//                    $msg_text= $request->sms;
+
+//                    $checksendsms=$smsClass->singleSms($phone, $msg_text, $rand);
+//                    if ($checksendsms) {
+//                        $sendHistory = new SendSms;
+//                        $sendHistory->phonenumber = $member->cell_number;
+//                        $sendHistory->sms = $request->sms;
+//                        $sendHistory->save();
+//                        $success++;
+//                    } else {
+//                        $error++;
+//                    }
+//                }
+//                if($success > 0){
+//                    Toastr::success('Sms Send Successfully!');
+//                    return redirect()->route(currentUser().'.sms_to_member');
+//                }else{
+//                    Toastr::error('Failed to send SMS!');
+//                    return back()->withInput();
+//                }
+//            }else{
+//                Toastr::error('Select member first');
+//                    return back()->withInput();
+//            }
+//        } catch (\Exception $e) {
+//            Toastr::warning('Please try Again!');
+//            return back()->withInput();
+//        }
+//    }
+    public function sendMailToStudent(Request $request){
         try {
             $success=0;
             $error=0;
-           if($request->member_id){
-               foreach ($request->member_id as $memberId) {
-                   $member = OurMember::where('id', $memberId)->first();
+           if($request->onlineApply_id){
+               foreach ($request->onlineApply_id as $studentId) {
+                   $member = OnlineApply::where('id', $studentId)->first();
                    $smsClass = new sslSms();
                    $phone = $member->cell_number;
                    $rand = uniqid() . rand(1000, 9999);

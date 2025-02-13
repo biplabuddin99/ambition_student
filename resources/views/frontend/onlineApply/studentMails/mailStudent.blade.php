@@ -1,5 +1,5 @@
 @extends('layout.app')
-@section('pageTitle',trans('SMS To Member'))
+@section('pageTitle',trans('Mail To Student'))
 @section('pageSubTitle',trans('List'))
 
 @section('content')
@@ -11,7 +11,7 @@
                     {!!Session::get('response')['message']!!}
                 @endif
                 <!-- table bordered -->
-                <form method="post" action="{{route(currentUser().'.sms_to_member_success')}}">
+                <form method="post" action="{{route(currentUser().'.mail_to_student_success')}}">
                     @csrf
                     <div class="row">
                         <div class="col-5">
@@ -26,20 +26,18 @@
                             <thead>
                                 <tr>
                                     <th scope="row"><input class="check_all" onchange="check_all()" type="checkbox"></th>
-                                    <th scope="col">{{__('Name')}}</th>
-                                    <th scope="col">{{__('Member ID')}}</th>
-                                    <th scope="col">{{__('Membership Type')}}</th>
-                                    <th scope="col">{{__('Emergency Contact No')}}</th>
+                                    <th scope="col">{{__('Student Name')}}</th>
+                                    <th scope="col">{{__(' Contact No')}}</th>
+                                    <th scope="col">{{__('Email')}}</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse($ourmember as $p)
+                                @forelse($onlineapply as $p)
                                 <tr>
-                                    <th scope="row"><input class="get_data" name="member_id[]" value="{{$p->id}}" type="checkbox"></th>
-                                    <td>{{$p->full_name}}</td>
-                                    <td>{{$p->membership_no}}</td>
-                                    <td>{{$p->membership_type?->member_type}}</td>
-                                    <td>{{$p->cell_number}}</td>
+                                    <th scope="row"><input class="get_data" name="onlineApply_id[]" value="{{$p->id}}" type="checkbox"></th>
+                                    <td>{{$p->name}}</td>
+                                    <td>{{$p->phone}}</td>
+                                    <td>{{$p->email}}</td>
                                 </tr>
                                 @empty
                                 <tr>
