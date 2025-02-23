@@ -160,7 +160,7 @@
             <div class="section">
                 <div class="d-flex">
                     <h3>Educational Qualification</h3>
-                    <span onClick='addEdu();' class="text-secondary mt-3">(if have more education, click<i class="bi bi-plus-square-fill"></i> button)</span>
+                    <span onClick='addEdu();' class="text-secondary mt-3 d-flex"><span class="d-none d-md-block ">(if have more education, click button)</span><span style="color: #007BFF"><i class="bi bi-plus-square-fill"></i></span></span>
                 </div>
                 <div class="table-responsive">
                     <table border="1" width="100%" style="border-collapse: collapse;">
