@@ -644,8 +644,8 @@
           <div class="p-lg-5 p-md-4 rounded shadow">
             <div class="row member-inner">
               <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                <p class="animate-title">Benefits of Students</p>
-                <ul class="navbar-nav benefit">
+                {{-- <p class="animate-title">Benefits of Students</p> --}}
+                {{-- <ul class="navbar-nav benefit">
                   @forelse ($benefit as $b)
                     <li class="nav-item">
                       <span>{{$b->benefit}}</span>
@@ -655,10 +655,10 @@
                         <i class="bi bi-caret-right-fill"></i> <span>Advocacy for Software & ITES</span>
                     </li>
                   @endforelse
-                </ul>
+                </ul> --}}
                   @if($showViewMoreButton)
                       <div class="viewbutton">
-                          <a class="btn btn-sm btn-danger" href="{{ route('member.benefit') }}">View more</a>
+                          {{-- <a class="btn btn-sm btn-danger" href="{{ route('member.benefit') }}">View more</a> --}}
                       </div>
                   @endif
               </div>
