@@ -4,8 +4,8 @@
 <style>
     body {
         font-family: Arial, sans-serif;
-        margin: 20px;
-        padding: 20px;
+        margin: 5px;
+        padding: 5px;
         background-color: #f9f9f9;
     }
 
@@ -15,14 +15,7 @@
         background: #fff;
         padding: 20px;
         border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-
-    .form-header {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
     label {
         display: block;
         margin-top: 5px;
@@ -132,212 +125,203 @@
     <div class="row merber-reg-card">
         <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
           <div class="card border-0 shadow">
-            <div class="form-container">
-                <h4 class="form-header">Please assist us with counseling by completing this form</h4>
+            <div class="container mt-4">
+                <div class="form-container">
+                    <h4 class="text-center mb-4">Please assist us with counseling by completing this form</h4>
 
-                <form class="form" method="post" enctype="multipart/form-data" action="{{route('onlineapply.store')}}" onsubmit="return confirmSubmit(event)">
-                    @csrf
-                    <!-- Personal Details -->
-                    <div class="section section-flex">
-                        <div class="form-details">
-                            <h3>Personal Details</h3>
-                            <div class="form-row">
-                                <label for="name">Name:</label>
-                                <input type="text" id="name" name="name" placeholder="Enter your name">
-                            </div>
-
-                            <div class="form-row">
-                                <label for="phone">Phone:</label>
-                                <input type="text" id="phone" name="phone" placeholder="Enter your phone number">
-                            </div>
-
-                            <div class="form-row">
-                                <label for="email">Email:</label>
-                                <input type="email" id="email" name="email" placeholder="Enter your email">
-                            </div>
+                    <form class="form" method="post" enctype="multipart/form-data" action="{{route('onlineapply.store')}}" onsubmit="return confirmSubmit(event)">
+                        @csrf
+            <!-- Personal Details -->
+            <div class="mb-4 p-3">
+                <h5>Personal Details</h5>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="col-md-12">
+                            <label for="name" class="form-label">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
                         </div>
-                        <div class="logo">
-                            <img class="align-self-center p-3" src="{{asset('img/ambition_logo.png')}}" alt="Ambition Logo" >
-                            {{-- <img src="{{asset('uploads/settings/header_logo/'.$setting?->header_logo)}}" alt="Ambition Logo"> --}}
+                        <div class="col-md-12">
+                            <label for="phone" class="form-label">Phone:</label>
+                            <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter your phone number">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
                         </div>
                     </div>
-
-                    <!-- Educational Qualification -->
-                    <div class="section">
-                        <div class="d-flex">
-                            <h3>Educational Qualification</h3>
-                            <span onClick='addEdu();' class="text-secondary mt-3">(if have more education, click<i class="bi bi-plus-square-fill"></i> button)</span>
-                        </div>
-                        <table border="1" width="100%" style="border-collapse: collapse;">
-                            <thead>
-                                <tr>
-                                    <th style="width: 10%;">Degree</th>
-                                    <th style="width: 10%;">Year</th>
-                                    <th style="width: 50%;">Education Institute</th>
-                                    <th style="width: 18%;">Subject/Group</th>
-                                    <th style="width: 12%;">GPA/CGPA</th>
-                                </tr>
-                            </thead>
-                            <tbody id="education_details">
-                                <tr>
-                                    <td><input type="text" name="degree[]" placeholder="SSC"></td>
-                                    <td>
-                                        {{-- <input type="text" name="year1" placeholder="Year"> --}}
-                                        <select id="year" name="year[]" class="form-control ">
-                                            {{ $last= date('Y')-120 }}
-                                            {{ $now = date('Y') }}
-                                            <option value="">Select</option>
-                                            @for ($i = $now; $i >= $last; $i--)
-                                                <option value="{{ $i }}">{{ $i }}</option>
-                                            @endfor
-                                            </select>
-                                    </td>
-                                    <td><input type="text" name="institute[]" placeholder="Institute"></td>
-                                    <td><input type="text" name="subject[]" placeholder="Subject"></td>
-                                    <td><input type="text" name="gpa[]" placeholder="GPA/CGPA"></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="text" name="degree[]" placeholder="HSC"></td>
-                                    <td>
-                                        {{-- <input type="text" name="year1" placeholder="Year"> --}}
-                                        <select id="year" name="year[]" class="form-control ">
-                                            {{ $last= date('Y')-120 }}
-                                            {{ $now = date('Y') }}
-                                            <option value="">Select</option>
-                                            @for ($i = $now; $i >= $last; $i--)
-                                                <option value="{{ $i }}">{{ $i }}</option>
-                                            @endfor
-                                            </select>
-                                    </td>
-                                    <td><input type="text" name="institute[]" placeholder="Institute"></td>
-                                    <td><input type="text" name="subject[]" placeholder="Subject"></td>
-                                    <td><input type="text" name="gpa[]" placeholder="GPA/CGPA"></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="text" name="degree[]" placeholder="Honours"></td>
-                                    <td>
-                                        {{-- <input type="text" name="year1" placeholder="Year"> --}}
-                                        <select id="year" name="year[]" class="form-control ">
-                                            {{ $last= date('Y')-120 }}
-                                            {{ $now = date('Y') }}
-                                            <option value="">Select</option>
-                                            @for ($i = $now; $i >= $last; $i--)
-                                                <option value="{{ $i }}">{{ $i }}</option>
-                                            @endfor
-                                            </select>
-                                    </td>
-                                    <td><input type="text" name="institute[]" placeholder="Institute"></td>
-                                    <td><input type="text" name="subject[]" placeholder="Subject"></td>
-                                    <td><input type="text" name="gpa[]" placeholder="GPA/CGPA"></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="text" name="degree[]" placeholder="Masters"></td>
-                                    <td>
-                                        {{-- <input type="text" name="year1" placeholder="Year"> --}}
-                                        <select id="year" name="year[]" class="form-control">
-                                            {{ $last= date('Y')-120 }}
-                                            {{ $now = date('Y') }}
-                                            <option value="">Select</option>
-                                            @for ($i = $now; $i >= $last; $i--)
-                                                <option value="{{ $i }}">{{ $i }}</option>
-                                            @endfor
-                                            </select>
-                                    </td>
-                                    <td><input type="text" name="institute[]" placeholder="Institute"></td>
-                                    <td><input type="text" name="subject[]" placeholder="Subject"></td>
-                                    <td><input type="text" name="gpa[]" placeholder="GPA/CGPA"></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="col-md-4 text-center d-none d-md-block">
+                        <img src="{{asset('img/ambition_logo.png')}}" alt="Ambition Logo" class="img-fluid mt-3" style="max-width: 150px;">
+                        {{-- <img src="{{asset('uploads/settings/header_logo/'.$setting?->header_logo)}}" alt="Ambition Logo"> --}}
                     </div>
+                </div>
+            </div>
 
-                    <!-- Professional Qualification -->
-                    <div class="section">
-                        <h3>Professional Qualification</h3>
-                        <div class="form-row">
-                            <label for="years">Number of Years:</label>
-                            <input type="number" id="years" name="qualification_year" placeholder="e.g., 5">
-                        </div>
-                        <div class="form-row">
-                            <label for="current-work">Current Works:</label>
-                            <input type="text" id="current-work" name="current_work" placeholder="Your current role">
-                        </div>
-                    </div>
-
-                    {{-- <div class="section">
-                        <h3>Language Proficiency</h3>
-                        <div class="form-row">
-                            <label for="ielts">IELTS Score:</label>
-                            <input type="text" id="ielts" name="ielts_score">
-                        </div>
-                        <div class="form-row">
-                            <label for="duolingo">Duolingo Score:</label>
-                            <input type="text" id="duolingo" name="duolingo_score">
-                        </div>
-                        <div class="form-row">
-                            <label for="pte">PTE Score:</label>
-                            <input type="text" id="pte" name="pte_score">
-                        </div>
-                    </div> --}}
-
-                    <!-- Language Proficiency -->
-                    <div class="section">
-                        <h3>Language Proficiency</h3>
-                        <table class="language-table">
+            <!-- Educational Qualification -->
+            <div class="section">
+                <div class="d-flex">
+                    <h3>Educational Qualification</h3>
+                    <span onClick='addEdu();' class="text-secondary mt-3">(if have more education, click<i class="bi bi-plus-square-fill"></i> button)</span>
+                </div>
+                <div class="table-responsive">
+                    <table border="1" width="100%" style="border-collapse: collapse;">
+                        <thead>
                             <tr>
-                                <th>IELTS</th>
-                                <th>OIETC/ELLT</th>
-                                <th>Duolingo</th>
-                                <th>MOI</th>
-                                <th>PTE</th>
-                                <th>OTHERS</th>
+                                <th style="width: 10%;">Degree</th>
+                                <th style="width: 10%;">Year</th>
+                                <th style="width: 50%;">Education Institute</th>
+                                <th style="width: 18%;">Subject/Group</th>
+                                <th style="width: 12%;">GPA/CGPA</th>
+                            </tr>
+                        </thead>
+                        <tbody id="education_details">
+                            <tr>
+                                <td><input type="text" name="degree[]" placeholder="SSC"></td>
+                                <td>
+                                    {{-- <input type="text" name="year1" placeholder="Year"> --}}
+                                    <select id="year" name="year[]" class="form-control ">
+                                        {{ $last= date('Y')-120 }}
+                                        {{ $now = date('Y') }}
+                                        <option value="">Select</option>
+                                        @for ($i = $now; $i >= $last; $i--)
+                                            <option value="{{ $i }}">{{ $i }}</option>
+                                        @endfor
+                                        </select>
+                                </td>
+                                <td><input type="text" name="institute[]" placeholder="Institute"></td>
+                                <td><input type="text" name="subject[]" placeholder="Subject"></td>
+                                <td><input type="text" name="gpa[]" placeholder="GPA/CGPA"></td>
                             </tr>
                             <tr>
-                                <td><input type="text" id="ielts" name="ielts_score"></td>
-                                <td><input type="text" id="oietc_elt" name="oietc_elt_score"></td>
-                                <td><input type="text" id="duolingo" name="duolingo_score"></td>
-                                <td><input type="text" id="moi" name="moi_score"></td>
-                                <td><input type="text" id="pte" name="pte_score"></td>
-                                <td><input type="text" id="others" name="others_score"></td>
+                                <td><input type="text" name="degree[]" placeholder="HSC"></td>
+                                <td>
+                                    {{-- <input type="text" name="year1" placeholder="Year"> --}}
+                                    <select id="year" name="year[]" class="form-control ">
+                                        {{ $last= date('Y')-120 }}
+                                        {{ $now = date('Y') }}
+                                        <option value="">Select</option>
+                                        @for ($i = $now; $i >= $last; $i--)
+                                            <option value="{{ $i }}">{{ $i }}</option>
+                                        @endfor
+                                        </select>
+                                </td>
+                                <td><input type="text" name="institute[]" placeholder="Institute"></td>
+                                <td><input type="text" name="subject[]" placeholder="Subject"></td>
+                                <td><input type="text" name="gpa[]" placeholder="GPA/CGPA"></td>
                             </tr>
-                        </table>
-                    </div>
-
-                    <!-- Field of Study -->
-                    <div class="section">
-                        <h3>Field of Study</h3>
-                        <div class="checkbox-group">
-                            @foreach ($fieldstudy as $field)
-                            <label><input type="checkbox" name="field_of_study[]" value="{{ $field->id }}"> {{ $field->name }}</label>
-                            @endforeach
-                            {{-- <label><input type="checkbox" name="field_of_study[]" value="Diploma Program"> Diploma Program</label>
-                            <label><input type="checkbox" name="field_of_study[]" value="Undergraduate Programs"> Undergraduate Programs</label>
-                            <label><input type="checkbox" name="field_of_study[]" value="Postgraduate Programs"> Postgraduate Programs</label>
-                            <label><input type="checkbox" name="field_of_study[]" value="Doctoral Program"> Doctoral Program</label>
-                            <label><input type="checkbox" name="field_of_study[]" value="Professional Degrees"> Professional Degrees</label> --}}
+                            <tr>
+                                <td><input type="text" name="degree[]" placeholder="Honours"></td>
+                                <td>
+                                    {{-- <input type="text" name="year1" placeholder="Year"> --}}
+                                    <select id="year" name="year[]" class="form-control ">
+                                        {{ $last= date('Y')-120 }}
+                                        {{ $now = date('Y') }}
+                                        <option value="">Select</option>
+                                        @for ($i = $now; $i >= $last; $i--)
+                                            <option value="{{ $i }}">{{ $i }}</option>
+                                        @endfor
+                                        </select>
+                                </td>
+                                <td><input type="text" name="institute[]" placeholder="Institute"></td>
+                                <td><input type="text" name="subject[]" placeholder="Subject"></td>
+                                <td><input type="text" name="gpa[]" placeholder="GPA/CGPA"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" name="degree[]" placeholder="Masters"></td>
+                                <td>
+                                    {{-- <input type="text" name="year1" placeholder="Year"> --}}
+                                    <select id="year" name="year[]" class="form-control">
+                                        {{ $last= date('Y')-120 }}
+                                        {{ $now = date('Y') }}
+                                        <option value="">Select</option>
+                                        @for ($i = $now; $i >= $last; $i--)
+                                            <option value="{{ $i }}">{{ $i }}</option>
+                                        @endfor
+                                        </select>
+                                </td>
+                                <td><input type="text" name="institute[]" placeholder="Institute"></td>
+                                <td><input type="text" name="subject[]" placeholder="Subject"></td>
+                                <td><input type="text" name="gpa[]" placeholder="GPA/CGPA"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+                        <!-- Professional Qualification -->
+                        <div class="section">
+                            <h3>Professional Qualification</h3>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <label class="form-label" for="years">Number of Years:</label>
+                                    <input class="form-control" type="number" id="years" name="qualification_year" placeholder="e.g., 5">
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <label class="form-label" for="current-work">Current Works:</label>
+                                    <input class="form-control" type="text" id="current-work" name="current_work" placeholder="Your current role">
+                                </div>
+                            </div>
                         </div>
-                    </div>
-
-                    <!-- Country Preference -->
-                    <div class="section">
-                        <h3>Country Preference</h3>
-                        <div class="checkbox-group">
-                            @foreach ($countryperf as $country)
-                            <label><input type="checkbox" name="country_preference[]" value="{{ $country->id }}"> {{ $country->name }}</label>
-                            @endforeach
+                        <!-- Language Proficiency -->
+                        <div class="section">
+                            <h3>Language Proficiency</h3>
+                            <div class="table-responsive">
+                                <table class="language-table">
+                                    <tr>
+                                        <th>IELTS</th>
+                                        <th>OIETC/ELLT</th>
+                                        <th>Duolingo</th>
+                                        <th>MOI</th>
+                                        <th>PTE</th>
+                                        <th>OTHERS</th>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" id="ielts" name="ielts_score"></td>
+                                        <td><input type="text" id="oietc_elt" name="oietc_elt_score"></td>
+                                        <td><input type="text" id="duolingo" name="duolingo_score"></td>
+                                        <td><input type="text" id="moi" name="moi_score"></td>
+                                        <td><input type="text" id="pte" name="pte_score"></td>
+                                        <td><input type="text" id="others" name="others_score"></td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
-                    </div>
-                    <!-- Remark Preference -->
-                    <div class="section">
-                        <h6>Remark</h6>
-                        <div class="">
-                            <textarea class="w-100" name="remark" id="" cols="30" rows="3"></textarea>
-                        </div>
-                    </div>
 
-                    <!-- Submit Button -->
-                    <button type="submit" class="btn">Submit</button>
-                </form>
+                        <!-- Field of Study -->
+                        <div class="section">
+                            <h3>Field of Study</h3>
+                            <div class="checkbox-group">
+                                @foreach ($fieldstudy as $field)
+                                <label><input type="checkbox" name="field_of_study[]" value="{{ $field->id }}"> {{ $field->name }}</label>
+                                @endforeach
+                                {{-- <label><input type="checkbox" name="field_of_study[]" value="Diploma Program"> Diploma Program</label>
+                                <label><input type="checkbox" name="field_of_study[]" value="Undergraduate Programs"> Undergraduate Programs</label>
+                                <label><input type="checkbox" name="field_of_study[]" value="Postgraduate Programs"> Postgraduate Programs</label>
+                                <label><input type="checkbox" name="field_of_study[]" value="Doctoral Program"> Doctoral Program</label>
+                                <label><input type="checkbox" name="field_of_study[]" value="Professional Degrees"> Professional Degrees</label> --}}
+                            </div>
+                        </div>
+
+                        <!-- Country Preference -->
+                        <div class="section">
+                            <h3>Country Preference</h3>
+                            <div class="checkbox-group">
+                                @foreach ($countryperf as $country)
+                                <label><input type="checkbox" name="country_preference[]" value="{{ $country->id }}"> {{ $country->name }}</label>
+                                @endforeach
+                            </div>
+                        </div>
+                        <!-- Remark Preference -->
+                        <div class="section">
+                            <h6>Remark</h6>
+                            <div class="">
+                                <textarea class="w-100" name="remark" id="" cols="30" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn">Submit</button>
+                    </form>
+                </div>
+
             </div>
           </div>
       </div>
