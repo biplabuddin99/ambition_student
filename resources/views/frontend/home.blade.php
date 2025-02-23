@@ -693,7 +693,7 @@
                 <ul class="navbar-nav benefit" style="padding-left: 8px !important; height: 65% !important; padding-bottom: 0 !important; background-color: transparent !important;">
                   @forelse ($benefit as $b)
                     <li class="nav-item">
-                       <span>{{$b->benefit}}</span>
+                       {{-- <span>{{$b->benefit}}</span> --}}
                     </li>
                   @empty
                     <li class="nav-item">
@@ -711,7 +711,7 @@
                 <p style="font-size: 7vw;"><span>Online<span class="theme-color">Apply</span></span></p>
               </div>
               <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 apply-text">
-                <a class="shadow" href="{{route('member_registration')}}">Apply Now</a>
+                <a class="shadow" href="{{route('onlineapply.create')}}">Apply Now</a>
               </div>
             </div>
           </div>
