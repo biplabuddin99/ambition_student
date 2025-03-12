@@ -77,8 +77,8 @@
                                                 data-phone="{{$p->phone}}"
                                                 data-email="{{$p->email}}"
                                                 data-student-id="{{$p->id}}"
-                                                <span class="text-primary p-1">
-                                                    Approval
+                                                <span class="text-primary p-2">
+                                                    Click
                                                 </span>
                                             </button>
                                         </td>
