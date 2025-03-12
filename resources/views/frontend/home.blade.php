@@ -462,12 +462,12 @@
                     </span>
                     <h3 class="member-title">{{$fm->given_name }} {{$fm->surname }}</h3>
                     <small>
-                      Company:<strong class="member-company"> {{$fm->company}}</strong>
+                        Study:<strong class="member-company"> {{$fm->company}}</strong>
 
                     </small>
                     <br>
                     <small>
-                      Designation:<strong class="member-designation"> {{$fm->designation }}</strong>
+                      Description:<strong class="member-designation"> {{$fm->designation }}</strong>
                   </small>
                 </div>
                 {{-- <div class="card-footer">
@@ -511,12 +511,12 @@
                     </span>
                     <h3 class="member-title">{{$fm->given_name }} {{$fm->surname }}</h3>
                     <small>
-                      Company:<strong class="member-company"> {{$fm->company}}</strong>
+                        Study:<strong class="member-company"> {{$fm->company}}</strong>
 
                     </small>
                     <br>
                     <small>
-                      Designation:<strong class="member-designation"> {{$fm->designation }}</strong>
+                        Description:<strong class="member-designation"> {{$fm->designation }}</strong>
                   </small>
                 </div>
             </div>

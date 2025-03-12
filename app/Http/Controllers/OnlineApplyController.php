@@ -21,7 +21,7 @@ class OnlineApplyController extends Controller
      */
     public function index(Request $request)
     {
-        $onlineapply=OnlineApply::orderBy('id','desc');
+        $onlineapply=OnlineApply::where('status',0)->orderBy('id','desc');
         // $member=OnlineApply::where('status',2)->get();
         if($request->name)
             $onlineapply=$onlineapply->where('name','like','%'.$request->name.'%');
@@ -38,6 +38,26 @@ class OnlineApplyController extends Controller
                 $apply->selectedCountry = explode(',', $apply->country_preference); // Convert to an array
             });
         return view('frontend.onlineApply.index', compact('onlineapply', 'countryperf'));
+    }
+    public function approvedStudent(Request $request)
+    {
+        $onlineapply=OnlineApply::where('status',1)->orderBy('id','desc');
+        // $member=OnlineApply::where('status',2)->get();
+        if($request->name)
+            $onlineapply=$onlineapply->where('name','like','%'.$request->name.'%');
+        if($request->phone)
+            $onlineapply=$onlineapply->where('phone','like','%'.$request->phone.'%');
+        if($request->email)
+            $onlineapply=$onlineapply->where('email',$request->email);
+
+        $onlineapply=$onlineapply->paginate(25);
+            // Fetch all countries
+            $countryperf = CountryPreference::select('id', 'name')->get();
+            // Prepare selectedCountry for each record
+            $onlineapply->each(function ($apply) {
+                $apply->selectedCountry = explode(',', $apply->country_preference); // Convert to an array
+            });
+        return view('frontend.onlineApply.approveStudent', compact('onlineapply', 'countryperf'));
     }
 
 
@@ -229,5 +249,35 @@ class OnlineApplyController extends Controller
         $cat->delete();
         Toastr::warning('Application Deleted Permanently!');
         return redirect()->back();
+    }
+
+    public function studentApproved(Request $request)
+    {
+        try {
+            $data = OnlineApply::find($request->student_id);
+            $data->status = $request->status;
+            $data->show_font = $request->show_font;
+            $data->university_name = $request->university_name;
+            $data->short_description = $request->short_description;
+            // if($request->has('Picture'))
+            // $data->image=$this->resizeImage($request->Picture,'uploads/onlineStudent',true,140,175,false);
+            if ($request->hasFile('Picture')) {
+                $filename = rand(111, 999) . time() . '.' . $request->Picture->extension();
+                $request->file('Picture')->move(public_path('uploads/onlineStudent'), $filename);
+                $data->image = $filename;
+            }
+
+            // $data->company_id = company()['company_id'];
+            if ($data->save()) {
+                Toastr::success('Success Online Approve Successfully!');
+                return redirect()->route(currentUser().'.onlineapply.index');
+            } else {
+                Toastr::warning('Please try Again!');
+                return redirect()->back();
+            }
+        } catch (Exception $e) {
+            dd($e);
+            return back()->withInput();
+        }
     }
 }

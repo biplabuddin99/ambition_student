@@ -1,5 +1,5 @@
 @extends('layout.app')
-@section('pageTitle', trans('Applied Student List'))
+@section('pageTitle', trans('Applied Approved Student List'))
 @section('pageSubTitle', trans('List'))
 
 @section('content')
@@ -11,10 +11,10 @@
                     @if (Session::has('response'))
                         {!! Session::get('response')['message'] !!}
                     @endif
-                    <div>
+                    {{-- <div>
                         <a class="float-end" href="{{ route(currentUser() . '.onlineapply.create') }}"
                             style="font-size:1.7rem"><i class="bi bi-plus-square-fill"></i></a>
-                    </div>
+                    </div> --}}
                     <form action="" method="get">
                         <div class="row py-2 d-flex">
                             <div class="input-group input-group-sm d-flex">
@@ -51,8 +51,7 @@
                                     <th scope="col">{{ __('Name') }}</th>
                                     <th scope="col">{{ __('Phone') }}</th>
                                     <th scope="col">{{ __('Email') }}</th>
-                                    <th scope="col">{{ __('Country') }}</th>
-                                    <th scope="col">{{ __('Approval') }}</th>
+                                    <th scope="col">{{ __('University') }}</th>
                                     <th class="white-space-nowrap">{{ __('Action') }}</th>
                                 </tr>
                             </thead>
@@ -63,25 +62,7 @@
                                         <td>{{ $p->name }}</td>
                                         <td>{{ $p->phone }}</td>
                                         <td>{{ $p->email }}</td>
-                                        <td>
-                                            @foreach ($countryperf as $country)
-                                                @if (in_array($country->id, $p->selectedCountry))
-                                                    {{ $country->name }},
-                                                @endif
-                                            @endforeach
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-primary p-0 m-0" type="button" style="background-color: none; border:none;"
-                                                data-bs-toggle="modal" data-bs-target="#balance"
-                                                data-student-name="{{$p->name }}"
-                                                data-phone="{{$p->phone}}"
-                                                data-email="{{$p->email}}"
-                                                data-student-id="{{$p->id}}"
-                                                <span class="text-primary p-1">
-                                                    Approval
-                                                </span>
-                                            </button>
-                                        </td>
+                                        <td> {{ $p->university_name }}</td>
                                         <td class="white-space-nowrap">
                                             <a
                                                 href="{{ route(currentUser() . '.onlineapply.show', encryptor('encrypt', $p->id)) }}">
@@ -95,10 +76,10 @@
                                                 href="{{ route(currentUser() . '.onlineapply.edit', encryptor('encrypt', $p->id)) }}">
                                                 <i class="bi bi-pencil-square"></i>
                                             </a> &nbsp;
-                                            <a class="text-danger" href="javascript:void()"
+                                            {{-- <a class="text-danger" href="javascript:void()"
                                                 onclick="$('#form{{ $p->id }}').submit()">
                                                 <i class="bi bi-trash"></i>
-                                            </a>
+                                            </a> --}}
                                             <form id="form{{ $p->id }}" onsubmit="return confirm('Are you sure?')"
                                                 action="{{ route(currentUser() . '.onlineapply.destroy', encryptor('encrypt', $p->id)) }}"
                                                 method="post">

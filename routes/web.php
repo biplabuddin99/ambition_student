@@ -242,6 +242,9 @@ Route::group(['middleware'=>isAdmin::class],function(){
         Route::resource('member_voucher',memvervoucher::class);
         Route::get('get_head', [vouchers::class, 'get_head'])->name('get_head');
 
+        // student approval
+        Route::post('/student/approved', [onlineApply::class, 'studentApproved'])->name('admin.student_approval');
+        Route::get('approved-student', [onlineApply::class, 'approvedStudent'])->name('admin.approve_student');
     });
 });
 

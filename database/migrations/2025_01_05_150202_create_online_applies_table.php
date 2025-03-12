@@ -29,7 +29,11 @@ return new class extends Migration
             $table->string('field_of_study')->nullable();
             $table->string('country_preference')->nullable();
             $table->text('remark')->nullable();
+            $table->string('university_name')->nullable();
+            $table->string('image')->nullable();
+            $table->text('short_description')->nullable();
             $table->string('status')->nullable();
+            $table->string('show_font')->nullable();
             $table->timestamps();
         });
     }

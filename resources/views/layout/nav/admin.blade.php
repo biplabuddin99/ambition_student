@@ -69,7 +69,7 @@
             <li class="py-1 submenu-item"><a href="{{route(currentUser().'.memberType.index')}}">{{__('Student Type')}}</a></li>
             <li class="py-1 submenu-item"><a href="{{route(currentUser().'.onlineapply.index')}}">{{__('Applied Student')}}</a></li>
             {{-- <li class="py-1 submenu-item"><a href="{{route(currentUser().'.ourMember.index')}}">{{__('Applied Student')}}</a></li> --}}
-            <li class="py-1 submenu-item"><a href="{{route(currentUser().'.approve_member')}}">{{__('Approved Student')}}</a></li>
+            <li class="py-1 submenu-item"><a href="{{route(currentUser().'.approve_student')}}">{{__('Approved Student')}}</a></li>
             {{-- <li class="py-1 submenu-item"><a href="{{route(currentUser().'.sms_to_member')}}">{{__('Mail To Student')}}</a></li> --}}
             <li class="py-1 submenu-item"><a href="{{route(currentUser().'.mail_to_student')}}">{{__('Mail To Student')}}</a></li>
         </ul>

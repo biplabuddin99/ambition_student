@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ambition Student | @yield('pageTitle')</title>
+    <title>Ambition Student Consultancy | @yield('pageTitle')</title>
     <link rel="shortcut icon" href="{{ asset('assets/images/logo/ambition_logo.jpg') }}" type="image/png">
     <!-- Bootstrap 5.2 -->
     <link
