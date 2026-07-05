@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\photoGallaryCategory;
 use Brian2694\Toastr\Facades\Toastr;
 use App\Http\Traits\ImageHandleTraits;
+use App\Models\OnlineApply;
 
 class FrontendController extends Controller
 {
@@ -46,22 +47,20 @@ class FrontendController extends Controller
         $vNotice= video_notice::all();
         $facilities=Facilities::get();
         $pgallery_cat=photoGallaryCategory::where('status',1)->get();
-        $donor = OurMember::where('membership_applied',1)->count();
-        $Service = OurMember::where('membership_applied',2)->count();
-        $Life = OurMember::where('membership_applied',3)->count();
-        $Temporary = OurMember::where('membership_applied',4)->count();
-        $Permanent = OurMember::where('membership_applied',5)->count();
-        $Honorary = OurMember::where('membership_applied',6)->count();
-        $Corporate = OurMember::where('membership_applied',7)->count();
-        $Diplomate = OurMember::where('membership_applied',7)->count();
-        $ourMember = OurMember::where('show_font',1)->get();
+        // $donor = OurMember::where('membership_applied',1)->count();
+        // $Service = OurMember::where('membership_applied',2)->count();
+        // $Life = OurMember::where('membership_applied',3)->count();
+        // $Temporary = OurMember::where('membership_applied',4)->count();
+        // $Permanent = OurMember::where('membership_applied',5)->count();
+        // $Honorary = OurMember::where('membership_applied',6)->count();
+        // $Corporate = OurMember::where('membership_applied',7)->count();
+        // $Diplomate = OurMember::where('membership_applied',7)->count();
+        // $ourMember = OurMember::where('show_font',1)->get();
+        $onlineApply = OnlineApply::where('show_font',1)->get();
         $SuccessStudent = SuccessStudent::select('id','image')->get();
-        // $foundMember = DB::table('our_members')
-        //         ->join('founding_committees', 'our_members.membership_no', '=', 'founding_committees.member_id')
-        //         ->select('our_members.*')->get();
         $benefit = BenefitsOfMember::latest()->take(6)->get();
         $showViewMoreButton = BenefitsOfMember::count() > 6;
-        return view('frontend.home',compact('slider','notice','facilities','pgallery_cat','donor','Service','Life','Temporary','Permanent','Honorary','Corporate','Diplomate','ourMember','benefit','showViewMoreButton','scroll_notice','vNotice','SuccessStudent'));
+        return view('frontend.home',compact('slider','notice','facilities','pgallery_cat','onlineApply','benefit','showViewMoreButton','scroll_notice','vNotice','SuccessStudent'));
     }
     /**
      * Show the form for creating a new resource.

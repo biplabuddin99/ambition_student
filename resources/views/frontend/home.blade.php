@@ -451,23 +451,23 @@
           </div> --}}
           <h4 class="animate-title title-heading">Our Success Students</h4>
           <div class="row owl-member owl-theme owl-carousel">
-          @forelse ($ourMember as $fm)
+          @forelse ($onlineApply as $fm)
           <div class="col-12 item pe-2 ps-2">
             <div class="card member-box shadow">
                 <span class="shape"></span>
-                <img class="card-img-top" src="{{asset('uploads/member_image/'.$fm->image)}}" alt="No Photos">
+                <img class="card-img-top" src="{{asset('uploads/onlineStudent/'.$fm->image)}}" alt="No Photos">
                 <div class="card-body">
-                    <span class="member-degignation">
+                    {{-- <span class="member-degignation">
                       {{$fm->membership_type?->member_type}}
-                    </span>
-                    <h3 class="member-title">{{$fm->given_name }} {{$fm->surname }}</h3>
+                    </span> --}}
+                    <h3 class="member-title">{{$fm->name }}</h3>
                     <small>
-                        Study:<strong class="member-company"> {{$fm->company}}</strong>
+                        Study:<strong class="member-company"> {{$fm->university_name}}</strong>
 
                     </small>
                     <br>
                     <small>
-                      Description:<strong class="member-designation"> {{$fm->designation }}</strong>
+                      Description:<strong class="member-designation"> {{$fm->short_description }}</strong>
                   </small>
                 </div>
                 {{-- <div class="card-footer">
@@ -498,30 +498,29 @@
         </section>
         {{-- This section is for small view start --}}
         <section class="container-fluid-fluid pb-2  d-sm-none">
-          <h4 class="animate-title title-heading mb-3" style="font-size: 32px !important;">Our Members</h4>
+          <h4 class="animate-title title-heading mb-3" style="font-size: 32px !important;">Our Success Students</h4>
           <div class="row owl-member owl-theme owl-carousel">
-          @forelse ($ourMember as $fm)
+          @forelse ($onlineApply as $fm)
           <div class="col-12 item pe-3 ps-3">
             <div class="card member-box shadow">
                 <span class="shape"></span>
-                <img class="card-img-top" src="{{asset('uploads/member_image/'.$fm->image)}}" alt="No Photos">
+                <img class="card-img-top" src="{{asset('uploads/onlineStudent/'.$fm->image)}}" alt="No Photos">
                 <div class="card-body">
-                    <span class="member-degignation">
+                    {{-- <span class="member-degignation">
                         {{$fm->membership_type?->member_type}}
-                    </span>
-                    <h3 class="member-title">{{$fm->given_name }} {{$fm->surname }}</h3>
+                    </span> --}}
+                    <h3 class="member-title">{{$fm->name }}</h3>
                     <small>
-                        Study:<strong class="member-company"> {{$fm->company}}</strong>
+                        Study:<strong class="member-company"> {{$fm->university_name}}</strong>
 
                     </small>
                     <br>
                     <small>
-                        Description:<strong class="member-designation"> {{$fm->designation }}</strong>
+                        Description:<strong class="member-designation"> {{$fm->short_description }}</strong>
                   </small>
                 </div>
             </div>
           </div>
-
           @empty
             <div class="col-12 item pe-3 ps-3">
               <div class="shadow p-2 mb-3"style="background: #FFF">
