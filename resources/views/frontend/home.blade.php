@@ -64,7 +64,7 @@
           {{-- <div class="our-members">
           </div> --}}
           <h4 class="animate-title title-heading my-4">
-            <a href="{{route('foundmember.list')}}" style="text-decoration: none; color:#2a45e1;">Success Student</a>
+            <a href="{{route('foundmember.list')}}" style="text-decoration: none; color:#2a45e1;">Study In</a>
             </h4>
           <div class="row">
             <div class="col-12 item pe-3 ps-3">
